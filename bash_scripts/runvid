@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT=$1
+
+p2rep "${INPUT}"
+PAR2OK=`echo $?`
+
+if [ ${PAR2OK} = 0 ]; then
+ echo "PAR2 Repair exited with status of ${PAR2OK}, extracting"
+ rvidext ${INPUT}
+fi
+
+

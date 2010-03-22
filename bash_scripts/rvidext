@@ -1,0 +1,12 @@
+#!/bin/bash
+
+INPUT=$1
+
+RARFILE=`find ${1} -name "*.rar" -print -quit`
+
+DEST="/usr/media-library/videos/Movies (LQ)/"
+
+if [ ${RARFILE} ]; then
+ echo "Found ${RARFILE}"
+ unrar x -y "${RARFILE}" "${DEST}"
+fi
