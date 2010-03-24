@@ -1,0 +1,3 @@
+# Mouse
+wminput -d -c xbmc_ptr 00:22:D7:FA:04:F5 > /tmp/wiimote-mouse 2>&1 &
+wminput -d -c sidebuttons 00:1B:7A:2D:F6:88 > /tmp/wiimote-gamepad 2>&1 &
