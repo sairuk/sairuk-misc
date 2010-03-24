@@ -1,0 +1,24 @@
+NDSDIR="/home/`whoami`/tmp/nds"
+SMBSHARE="${NDSDIR}/roms"
+LOGFILE="${NDSDIR}/launchdesmume.log"
+
+INPUT=`echo "${1}" | awk -F\/ '{print $7 }'`
+echo "INPUT IS: ${INPUT}" >> $LOGFILE
+
+ROM=`ls "${SMBSHARE}/${INPUT}"*`
+echo "ROM IS: ${ROM}" >> $LOGFILE
+
+echo "Unpacking ${ROM}"
+unzip -n "${ROM}" -d "${NDSDIR}" >> ${LOGFILE} 2>&1
+
+NDSNAME=`echo ${INPUT} | sed s/zip//`
+echo "NDSNAME IS: ${NDSNAME}" >> ${LOGFILE}
+NDS=`ls "${NDSDIR}/${NDSNAME}"*`
+echo "NDS IS: ${NDS}" >> ${LOGFILE}
+echo "Running with ${NDS}"
+
+desmume-cli "${NDS}" >> ${LOGFILE} 2>&1
+
+echo "========== Session End =========" >> ${LOGFILE}
+
+

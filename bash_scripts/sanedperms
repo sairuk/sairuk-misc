@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#######################################################
+#
+# Set up network scanner perms for sharing with saned
+# over network, finds device id on usb bus and sets
+# perms as required
+#
+######################################################
+
+ITEM="DCP-150C"
+USER="root"
+GROUP="saned"
+
+SCANNER=`lsusb | grep "${ITEM}"`
+BUS=`echo ${SCANNER} | awk '{print $2}'`
+DEVICE=`echo ${SCANNER} | awk '{print $4}' | sed s/\://`
+
+LOCATION="/dev/bus/usb/${BUS}/${DEVICE}"
+
+chown ${USER}:${GROUP} ${LOCATION} 
+chmod g+rw ${LOCATION}
+
+exit 0

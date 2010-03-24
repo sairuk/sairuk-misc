@@ -1,0 +1,10 @@
+CDROM="/dev/dvd1"
+
+if [ -e ${CDROM} ]; then
+ dd if=${CDROM} of=${1}.iso
+ ejectsound
+ exit 0
+fi
+
+echo "ERROR, paths not found"
+

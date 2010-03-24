@@ -1,0 +1,13 @@
+#!/bin/bash
+
+ # Set Sound Level and Play Sound
+ amixer -c 0 -- sset Master playback -30dB > /dev/null
+ play ~/.cpcdrom0/success.wav > /dev/null 2>&1
+ 
+ # Eject
+ eject ${CDROM}
+
+ # Reset Sound Level
+ amixer -c 0 -- sset Master playback 0dB > /dev/null 
+ exit 0
+

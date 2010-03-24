@@ -1,0 +1,33 @@
+NDSCDIR="/mnt/games/ndscovers/"
+NDSRDIR="/home/sairuk/tmp/nds/roms/"
+START="0"
+
+if [ $1 ]; then
+ FIN="$1"
+ echo "Using OVERRIDE, checking/grabbing ${FIN} covers"
+else
+ echo "OVERRIDE not set (set with 1st arg), scanning ROM directory"
+ FIN=`ls "${NDSRDIR}" | grep -v "^x" | wc -l`
+ echo "Scanned ROM directory, found ${FIN} ROMs"
+fi
+
+FIXFIN=$(expr $FIN + 1)
+
+URL="http://img.rom-freaks.net/nds/"
+URLALT="http://gbatemp.net/img/nds-boxart/static/gt"
+
+while [ $START -lt $FIXFIN ]
+do
+ START=`printf "%04d" $START`
+ echo "Checking for cover ${START}"
+ if [ ! -e ${NDSCDIR}${START}.jpg ]; then
+  echo "TOTAL: ${FIN} - MISSING: ${START} grabbing from ${URL}${START}.jpg"
+  wget ${URL}${START}.jpg -O ${NDSCDIR}/${START}.jpg
+ else
+  echo "TOTAL: ${FIN} - FOUND: ${START}"
+ fi
+ START=$(expr $START + 1)
+done
+
+echo "Updating Database"
+php -f /var/www/nds/update.php > /dev/null
