@@ -1,0 +1,26 @@
+#!/bin/bash
+
+AMOUNT="2"
+LOGFILE="/tmp/atiautofanspeed.log"
+HOME=`whoami`
+
+PERCNT=`/usr/bin/aticonfig --pplib-cmd "get fanspeed 0" | grep -o ..\%`
+ATITEMP=`/home/${HOME}/bin/atitemp | grep -o "..\." | grep -o ".."`
+DATE=`date`
+
+setSpeed() {
+        echo "Running command script @ ${DATE}" >> ${LOGFILE}
+        echo "Fanspeed @ ${PERCNT} with Temp @ ${ATITEMP}" >> ${LOGFILE}
+        echo "To compensate fanspeed will be set to $1%" >> ${LOGFILE}
+        ${COMMAND} "set fanspeed 0 ${1}" >> ${LOGFILE}
+}
+
+
+
+if [ ${ATITEMP} -gt 80 ]; then
+        ATICALC=`expr ${ATITEMP} / ${AMOUNT}`
+        setSpeed ${ATICALC}
+else
+        setSpeed 30
+fi
+
