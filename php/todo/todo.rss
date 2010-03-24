@@ -1,0 +1,471 @@
+<rss version="2.0">
+<channel>
+<title>ToDo List Feed</title>
+<link>http://mameau.ath.cx:8315/</link>
+<description>ToDo List Feed</description>
+<lastBuildDate>Mon, 30 Mar 2009 02:37:00 GMT</lastBuildDate>
+    <item>
+<title>[ADDED]:[PC] - Rip Little Britain DVDs</title>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Rip Little Britain DVDs</title>
+        <description></description>
+	   <pubDate>Sun, 07 Feb 2010 11:22:48 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+Little+Britain+DVDs.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Force recordings on mythtv to slaves before master</title>
+        <description></description>
+	   <pubDate>Sun, 07 Feb 2010 11:22:35 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Force+recordings+on+mythtv+to+slaves+before+master.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Retrieve Documents off old linux drive</title>
+        <description></description>
+	   <pubDate>Tue, 02 Feb 2010 20:21:06 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Retrieve+Documents+off+old+linux+drive.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Show trace over new machine in kitchen</title>
+        <description></description>
+	   <pubDate>Tue, 02 Feb 2010 20:17:03 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Show+trace+over+new+machine+in+kitchen.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Backup Media Library</title>
+        <description>Persistent</description>
+	   <pubDate>Tue, 02 Feb 2010 20:16:38 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Backup+Media+Library.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Backup Roms</title>
+        <description>Withstanding</description>
+	   <pubDate>Tue, 02 Feb 2010 20:16:04 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Backup+Roms.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[Consoles] - Restore Wii Linux image to 2GB SD Card</title>
+        <description></description>
+	   <pubDate>Tue, 02 Feb 2010 20:15:41 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Restore+Wii+Linux+image+to+2GB+SD+Card.ADDED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Check Rsync Backups</title>
+        <description></description>
+	   <pubDate>Tue, 02 Feb 2010 20:15:04 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Check+Rsync+Backups.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Move HTPC to corner</title>
+        <description></description>
+	   <pubDate>Tue, 02 Feb 2010 20:14:50 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Move+HTPC+to+corner.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Rip Futurama DVDs</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:30:47 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+Futurama+DVDs.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Move HTPC to corner</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:28:38 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Move+HTPC+to+corner.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Kids Shelves</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:28:01 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Kids+Shelves.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Re-Capture Wedding Video</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:21:21 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Re-Capture+Wedding+Video.ADDED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Mount Projector</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:20:04 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Mount+Projector.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Capture Video Tapes</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:18:51 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Capture+Video+Tapes.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Rollback to jaunty on netbook</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:18:42 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rollback+to+jaunty+on+netbook.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Install new router</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:18:42 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Install+new+router.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Rip DRIVE dvd</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:17:01 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+DRIVE+dvd.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Rip Black Adder DVD</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:17:01 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+Black+Adder+DVD.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Fix XBMC Sources (LOUNGE)</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:17:01 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+XBMC+Sources+(LOUNGE).COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Fix XBMC sources (HTPC)</title>
+        <description></description>
+	   <pubDate>Fri, 15 Jan 2010 22:17:01 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+XBMC+sources+(HTPC).COMPLETED</guid>
+    </item>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:23:46 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+Little+Britain+DVDs.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Rip Black Adder DVD</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:23:25 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+Black+Adder+DVD.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Rip DRIVE dvd</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:23:10 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rip+DRIVE+dvd.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Rollback to jaunty on netbook</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:22:48 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Rollback+to+jaunty+on+netbook.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Fix XBMC Sources (LOUNGE)</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:22:28 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+XBMC+Sources+(LOUNGE).ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Fix XBMC sources (HTPC)</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:22:04 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+XBMC+sources+(HTPC).ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Clean music library</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:21:43 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Clean+music+library.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Check Rsync Backups</title>
+        <description>Check they point to the correct directory move</description>
+	   <pubDate>Mon, 28 Dec 2009 20:21:17 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Check+Rsync+Backups.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Scan Wedding Photos</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:20:37 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Scan+Wedding+Photos.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Capture Video Tapes</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:20:12 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Capture+Video+Tapes.ADDED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Configure Rsync Backups for home directories</title>
+        <description></description>
+	   <pubDate>Mon, 28 Dec 2009 20:19:47 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Configure+Rsync+Backups+for+home+directories.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - extract grand designs season 9</title>
+        <description></description>
+	   <pubDate>Mon, 14 Dec 2009 23:26:23 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/extract+grand+designs+season+9.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Show trace google docs shopping lists</title>
+        <description></description>
+	   <pubDate>Mon, 14 Dec 2009 23:26:17 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Show+trace+google+docs+shopping+lists.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Sanpit</title>
+        <description></description>
+	   <pubDate>Mon, 14 Dec 2009 23:26:17 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Sanpit.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Fix up grand designs special eps</title>
+        <description></description>
+	   <pubDate>Mon, 14 Dec 2009 23:26:17 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+up+grand+designs+special+eps.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Configure Rsync Backups for home directories</title>
+        <description></description>
+	   <pubDate>Mon, 14 Dec 2009 23:25:54 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Configure+Rsync+Backups+for+home+directories.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Attach hose to AC outlet</title>
+        <description>before summer</description>
+	   <pubDate>Thu, 19 Nov 2009 00:03:21 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Attach+hose+to+AC+outlet.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Show trace google docs shopping lists</title>
+        <description></description>
+	   <pubDate>Thu, 19 Nov 2009 00:02:50 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Show+trace+google+docs+shopping+lists.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Mount Projector</title>
+        <description></description>
+	   <pubDate>Thu, 19 Nov 2009 00:02:28 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Mount+Projector.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Fix toilet</title>
+        <description></description>
+	   <pubDate>Thu, 19 Nov 2009 00:02:18 +1100</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+toilet.ADDED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - DirAlias Mame Samples</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:46:47 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/DirAlias+Mame+Samples.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Finish walkthrough</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:46:40 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Finish+walkthrough.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Retro Core</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:46:24 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Retro+Core.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Lazarus Logo</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:46:13 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Lazarus+Logo.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - extract grand designs season 9</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:46:04 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/extract+grand+designs+season+9.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Fix up grand designs special eps</title>
+        <description></description>
+	   <pubDate>Tue, 15 Sep 2009 19:45:34 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+up+grand+designs+special+eps.ADDED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - My Fitness Coach</title>
+        <description></description>
+	   <pubDate>Sat, 13 Jun 2009 14:22:18 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/My+Fitness+Coach.COMPLETED</guid>
+    </item>
+    <item>
+<title>[COMPLETED]:[COMPLETED] - Jillian Michaels\': Fitness Ultimatum 2009</title>
+        <description></description>
+	   <pubDate>Sat, 13 Jun 2009 14:22:18 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Jillian+Michaels\':+Fitness+Ultimatum+2009.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[Consoles] - My Fitness Coach</title>
+        <description></description>
+	   <pubDate>Sat, 13 Jun 2009 00:01:43 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/My+Fitness+Coach.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[Consoles] - Jillian Michaels\': Fitness Ultimatum 2009</title>
+        <description></description>
+	   <pubDate>Fri, 12 Jun 2009 23:57:48 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Jillian+Michaels\':+Fitness+Ultimatum+2009.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Retro Core</title>
+        <description>Season Images</description>
+	   <pubDate>Wed, 13 May 2009 08:38:07 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Retro+Core.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - DirAlias Mame Samples</title>
+        <description>Dungeon-Dave</description>
+	   <pubDate>Thu, 16 Apr 2009 01:34:08 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/DirAlias+Mame+Samples.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[PC] - Install new router</title>
+        <description></description>
+	   <pubDate>Mon, 13 Apr 2009 20:07:08 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Install+new+router.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[Requests] - Lazarus Logo</title>
+        <description>Design, 760x90, smoke, game chars, etc</description>
+	   <pubDate>Mon, 13 Apr 2009 20:06:51 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Lazarus+Logo.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Sanpit</title>
+        <description>Build a sandpit</description>
+	   <pubDate>Sat, 11 Apr 2009 12:21:13 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Sanpit.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - Finish walkthrough</title>
+        <description>Top cornice on kitched side incomplete</description>
+	   <pubDate>Fri, 10 Apr 2009 23:38:16 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Finish+walkthrough.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED] - 4444444444444444444444444</title>
+        <description>ddddddddddddddddddddddddd</description>
+	   <pubDate>Fri, 10 Apr 2009 23:31:23 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/4444444444444444444444444.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED](Cash) - bbbbbbbbbbbbbbbbbbbbbbba</title>
+        <description>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</description>
+	   <pubDate>Fri, 10 Apr 2009 23:29:45 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/bbbbbbbbbbbbbbbbbbbbbbba.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED]:[House] - aaaaaaaaaaaaaaa</title>
+        <description>bbbbbbbbbbbbbbbbbbbbbb</description>
+	   <pubDate>Fri, 10 Apr 2009 23:29:01 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/aaaaaaaaaaaaaaa.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED] - testicle</title>
+        <description>aaaaaaaaaaaaaaaaaaaaaaaaa</description>
+	   <pubDate>Fri, 10 Apr 2009 23:28:09 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/testicle.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED] - Test and test</title>
+        <description>House</description>
+	   <pubDate>Fri, 10 Apr 2009 23:23:51 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Test+and+test.ADDED</guid>
+    </item>
+<language>en-us</language>
+    <item>
+<title>[COMPLETED] - Test</title>
+        <description>COMPLETED</description>
+	   <pubDate>Fri, 10 Apr 2009 23:12:18 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Test.COMPLETED</guid>
+    </item>
+    <item>
+<title>[ADDED] - Test</title>
+        <description>House</description>
+	   <pubDate>Fri, 10 Apr 2009 23:05:26 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Test.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED] - Shave and fix king bed center support feet</title>
+        <description>House</description>
+	   <pubDate>Fri, 10 Apr 2009 22:56:06 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Shave+and+fix+king+bed+center+support+feet.ADDED</guid>
+    </item>
+    <item>
+<title>[ADDED] - Fix king bed slat</title>
+        <description>House</description>
+	   <pubDate>Fri, 10 Apr 2009 22:46:36 +1000</pubDate>
+        <link>http://mameau.ath.cx:8315/todo</link>
+        <guid>http://mameau.ath.cx:8315/todo/Fix+king+bed+slat.ADDED</guid>
+    </item>
+</channel>
+</rss>
