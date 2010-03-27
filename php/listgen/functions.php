@@ -33,21 +33,24 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 			
         	# Custom Items Start Here
         	switch ($inType) {
+        		# Cowering's Goodtools Have/Miss Text Format
 				case goodtxt:
 					if ( $i > $skiplines ) {
-	          			read_txtlist($skipLines);
+	          			build_itemArray($line,"Current");
 					} 
           		break;
-				case cmproxml:
+        		# CLRMame Pro XML Format
+          		case cmproxml:
 					if (( $i > $skiplines ) && ( substr($line,2,4) == "game")) {	
 						# Pull out the archive names
 						preg_match( "/\"(.*?)\"/", $line, $gamename );
 						$line = preg_replace( "/\"/",'',$gamename[0] );
-	          			read_cmproxml();
+	          			build_itemArray($line,"Current");
 					} 
           		break;
+          		# MAME XML Formal
 				case mamexml:
-          		read_mamexml($skipLines); 
+          			read_mamexml($skiplines);
           		break;
 				default:
            		echo "Nothing to do here either jim";
@@ -69,14 +72,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 	}
 }
 
-/*
- * Processes basic text file lists
- * any list is perfectly fine
- */
-function read_txtlist($skipLines) {
-
-    if ( $i > $skiplines ) 
-		{
+function build_itemArray($line,$build) {
 		$line = chop($line);
 		$items = array();
 		$items [] = array(
@@ -87,28 +83,7 @@ function read_txtlist($skipLines) {
 		'romof' => $line,
 		'ext' => $ext,
 		'description' => $line,
-		'build' => 'Current'
-		);
-
-	}
-}
-
-/*
- * Processes CLRMAME XML fixdat files
- */
-function read_cmproxml() {
-		 # Process items here
-		$line = chop($line);
-		$items = array();
-		$items [] = array(
-		'type' => '0',
-		'condition' => '1',
-		'value' => $line,
-		'cloneof' => $line,
-		'romof' => $line,
-		'ext' => $ext,
-		'description' => $line,
-		'build' => 'Current'
+		'build' => $build
 		);
 }
 
@@ -150,19 +125,7 @@ function read_mamexml($skiplines)
 	}					
 					
 	if (isset($build) && isset($game) && isset($description)) {
-		// Process items here
-		$line = chop($game);
-		$items = array();
-		$items [] = array(
-		'type' => '0',
-		'condition' => '1',
-		'value' => $line,
-		'cloneof' => $cloneof,
-		'romof' => $romof,
-		'ext' => $ext,
-		'description' => $description,
-		'build' => $build
-		);
+          build_itemArray($line,$build);
 	}
 }
 
