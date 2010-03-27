@@ -12,6 +12,8 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 	global $outfile;
 	global $ext;
 	global $xmlhndl;
+
+	switchOutput($_POST['queue']);
 	
     $i = "0";
 	$name = preg_replace('/' . session_id() . '_/','',$outfile);
@@ -25,7 +27,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 		$xmlhndl = @fopen($outfile,"w");
         writeout_header();
 
-         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
 			$i++;
 			
@@ -174,7 +176,7 @@ function read_mamexml($skiplines)
  * Checks type of file then calls genFunction()
  */
 function process_upload($tmpfile) {
-
+	
 	global $fixfile;
 
     $uploaddir = '/var/www/listgen/';
@@ -198,7 +200,7 @@ function process_upload($tmpfile) {
 			} 
 			if (($i == "7") && (preg_match('/FIXDAT/',$line)))	{
 				# Valid CMPRO Fixdat
-				genFunction("cmproxml","16","Recognised CMPro Fixdat (XML");				
+				genFunction("cmproxml","16","Recognised CMPro Fixdat (XML)");				
 				exit;
 			} 
 			if ($i >= "9") {
@@ -230,5 +232,54 @@ function create_link($zipfile) {
 			 ');
         }
 }
+
+function switchOutput($pstQueue) {
+	
+	if (isset($fixfile)) {
+
+    $name = substr($fixfile,0,strlen($fixfile)-4);
+
+   	# Outputs
+   	switch ($pstQueue) { 
+        case filezilla:
+          require('outputs/filezilla.php'); 
+          break;
+        case wget:
+          require('outputs/wget.php');
+          break;
+        case msbat:
+          require('outputs/msbat.php');
+		  break; 
+        case bash:
+          require('outputs/bash.php');
+          break;
+        case google:
+          require('outputs/html_google.php');
+		  break; 
+        case binsearch:
+          require('outputs/html_binsearch.php');
+		  break; 
+        case easynews:
+          require('outputs/html_easynews.php');
+		  break; 
+        case mamewah:
+          require('outputs/mamewah.php');
+		  break; 
+        case mamewah168:
+          require('outputs/mamewah168.php');
+		  break;
+        case mGalaxy:
+          require('outputs/mgalaxy.php');
+          break; 
+		case xbmc-launcher:
+          require('outputs/xbmc-launcher.php');
+          break; 
+        default:
+          echo "Nothing to do here either jim";
+    	}
+
+	}
+}
+
 
 ?>

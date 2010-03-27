@@ -129,59 +129,12 @@ if (isset($_POST['rompath']))
 
 <?php
 
-
-
 # Process File Upload
 if (isset($_FILES['fixfile']['name'])) 
 {
     $fixfile = $_FILES['fixfile']['name'];
     $tmpfile = $_FILES['fixfile']['tmp_name'];
     process_upload($tmpfile);
-}
-
-if (isset($fixfile)) {
-
-    $name = substr($fixfile,0,strlen($fixfile)-4);
-
-   # Outputs
-   switch ($_POST['queue']) { 
-        case filezilla:
-          require('outputs/filezilla.php'); 
-          break;
-        case wget:
-          require('outputs/wget.php');
-          break;
-        case msbat:
-          require('outputs/msbat.php');
-		  break; 
-        case bash:
-          require('outputs/bash.php');
-          break;
-        case google:
-          require('outputs/html_google.php');
-		  break; 
-        case binsearch:
-          require('outputs/html_binsearch.php');
-		  break; 
-        case easynews:
-          require('outputs/html_easynews.php');
-		  break; 
-        case mamewah:
-          require('outputs/mamewah.php');
-		  break; 
-        case mamewah168:
-          require('outputs/mamewah168.php');
-		  break;
-        case mGalaxy:
-          require('outputs/mgalaxy.php');
-          break; 
-		case xbmc-launcher:
-          require('outputs/xbmc-launcher.php');
-          break; 
-        default:
-          echo "Nothing to do here either jim";
-    }
-
 }
 
 ?>
