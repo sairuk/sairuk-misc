@@ -34,10 +34,20 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
         	# Custom Items Start Here
         	switch ($inType) {
 				case goodtxt:
-          		read_txtlist($skipLines); 
+					if ( $i > $skiplines ) {
+	          			read_txtlist($skipLines);
+					} 
           		break;
 				case cmproxml:
-          		read_cmproxml($skipLines); 
+					if (( $i > $skiplines ) && ( substr($line,2,4) == "game"))
+					{	
+									                  
+						# Pull out the archive names
+						preg_match( "/\"(.*?)\"/", $line, $gamename );
+						$line = preg_replace( "/\"/",'',$gamename[0] );
+	                           	
+	          			read_cmproxml();
+					} 
           		break;
 				case mamexml:
           		read_mamexml($skipLines); 
@@ -89,16 +99,9 @@ function read_txtlist($skipLines) {
 /*
  * Processes CLRMAME XML fixdat files
  */
-function read_cmproxml($skiplines) 
+function read_cmproxml() 
 {
-						
-	if (( $i > $skiplines ) && ( substr($line,2,4) == "game"))
-	{
-                    
-	# Pull out the archive names
-	preg_match( "/\"(.*?)\"/", $line, $gamename );
-	$line = preg_replace( "/\"/",'',$gamename[0] );
-                           
+
 		 # Process items here
 		$line = chop($line);
 		$items = array();
@@ -113,7 +116,6 @@ function read_cmproxml($skiplines)
 		'build' => 'Current'
 		);
 	
-	}
 
 }
 
@@ -235,8 +237,6 @@ function create_link($zipfile) {
 
 function switchOutput($pstQueue) {
 	
-	if (isset($fixfile)) {
-
     $name = substr($fixfile,0,strlen($fixfile)-4);
 
    	# Outputs
@@ -278,7 +278,6 @@ function switchOutput($pstQueue) {
           echo "Nothing to do here either jim";
     	}
 
-	}
 }
 
 
