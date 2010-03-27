@@ -1,8 +1,22 @@
 <?php
 
-require('functions.php');
-session_start();
+/*
+ * listgen indesx.php
+ *  
+ *  
+ * Enter Description
+ */ 
 
+require('functions.php');
+
+
+# Project information
+$projName = "listgen";
+$projVer = "v0.4";
+$projAuth = "sairuk";
+
+
+# Global Variables
 global $modname;
 global $fixfile;
 global $ext;
@@ -11,46 +25,46 @@ global $outfile;
 global $xmlhndl;
 global $rompath;
 
+# If page is reloaded from form with ext passed
+# populate $ext 
+if (isset($_POST['rompath']))
+{
+	# Set $ext to combo data
+	$ext = ".".$_POST['ext'];
+} else if ($_POST['ext'] == "custom" ) {
+	
+	# Set $ext to form data
+    $ext = ".".$_POST['custext'];
+} else {
+	# Clear $ext
+	$ext = "";
+}
+
+# Initialise Session Information
+session_start();
+$sessionID = session_id();
+
+
+# If page is reloaded from form with rompath passed
+# strip slashes from the path and print path to the 
+# screen
 if (isset($_POST['rompath']))
 {
 	$rompath = stripslashes($_POST['rompath']);
-	echo $rompath;
+	print $rompath;
 }
 
 ?>
 <html>
     <head>
-    <title>File List Convert</title>
-	<style>
-	body 
-	{
-		background: #FFFFFF;
-		color: #000000;
-	}
-	td 
-	{
-		font-size:12px;
-		font-family: arial;
-	}
-	select
-	{
-		color: white;
-		background: #5C5858;		
-	}
-	input
-	{
-		font-weight: bold;
-	}
-	
-	</style>
+    <title><?php print $projName .' '. $projVer ?></title>
+	<link ref="style.css" type="stylsheet/text"></link>
     </head>
     <body>
         <table border="0" width="50%">
             <tr>
-                 <td><h3>listgen - v0.3</h3>
-                        Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />
-                        &nbsp;<br />
-						* listxml Needs a large memcache for php >128mb, limited item support
+                 <td><h3><?php print $projName .' '. $projVer ?></h3>
+                        Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />&nbsp;<br />* listxml Needs a large memcache for php >128mb, limited item support
                  </td>
              </tr>
             <tr>
@@ -59,7 +73,7 @@ if (isset($_POST['rompath']))
 						<tr>
 							<td colspan="2">
 								<form enctype="multipart/form-data" action="index.php" method="post">
-									<input type="file" name="fixfile" size="50%" title="Select input file"/><br />
+								<input type="file" name="fixfile" size="50%" title="Select input file"/><br />
 							</td>
 							<td align="right" valign="top">
 									 <select name="ext" title="Select used extenstion">
@@ -98,40 +112,31 @@ if (isset($_POST['rompath']))
 							</td>
 							<td align="right">
 									<input type="submit" name="datrun" value="Process"/>
-							</td>
 								</form>
 							</td>
 						</tr>
 					</table>
-					
                 </td>
-            </tr>
-	<tr><td colspan="3"><a href="/listgen">Reload Page</a></td></tr>
-        </table>
-    </body>
+				</tr>
+		<tr>
+			<td colspan="3">
+				<a href="/listgen">Reload Page</a>
+			</td>
+		</tr>
+		</table>
+	</body>
 </html>
 
 <?php
 
-# Set Extension Variable
-$ext = ".".$_POST['ext'];
+
 
 # Process File Upload
 if (isset($_FILES['fixfile']['name'])) 
 {
-	
     $fixfile = $_FILES['fixfile']['name'];
     $tmpfile = $_FILES['fixfile']['tmp_name'];
     process_upload($tmpfile);
-	#$fixfile = session_id() . '_' .basename($_FILES['fixfile']['name']);
-	#$fixfile = basename($_FILES['fixfile']['name']);
-}
-
-# Custom Extension Processing
-if ($_POST['ext'] == "custom" )
-{
-
-    $ext = ".".$_POST['custext'];
 }
 
 if (isset($fixfile)) {
@@ -174,27 +179,8 @@ if (isset($fixfile)) {
           require('outputs/xbmc-launcher.php');
           break; 
         default:
-            echo "Nothing to do here either jim";
+          echo "Nothing to do here either jim";
     }
-
-/*
-    # Inputs
-    switch ($_POST['dattype']) {
-        case cmpro:
-            read_cmproxml(17);
-            break;
-        case misstxt:
-            read_txtlist(2);
-            break;
-        case stdtxt:
-            read_txtlist(0);
-            break;
-         default:
-            echo "Nothing to do here jim";
-    }
- */
-
-check_file();
 
 }
 

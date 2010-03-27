@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+body 
+{
+	background: #FFFFFF;
+	color: #000000;
+}
+td 
+{
+	font-size:12px;
+	font-family: arial;
+}
+select
+{
+	color: white;
+	background: #5C5858;		
+}
+input
+{
+	font-weight: bold;
+}

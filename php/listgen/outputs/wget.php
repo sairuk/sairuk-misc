@@ -27,7 +27,7 @@ function writeout_footer()
 {
 	
 	global $outfile;
-    create_link($outfile;);
+    create_link($outfile);
 }
 
 ?>
