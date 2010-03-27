@@ -39,13 +39,10 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 					} 
           		break;
 				case cmproxml:
-					if (( $i > $skiplines ) && ( substr($line,2,4) == "game"))
-					{	
-									                  
+					if (( $i > $skiplines ) && ( substr($line,2,4) == "game")) {	
 						# Pull out the archive names
 						preg_match( "/\"(.*?)\"/", $line, $gamename );
 						$line = preg_replace( "/\"/",'',$gamename[0] );
-	                           	
 	          			read_cmproxml();
 					} 
           		break;
@@ -99,9 +96,7 @@ function read_txtlist($skipLines) {
 /*
  * Processes CLRMAME XML fixdat files
  */
-function read_cmproxml() 
-{
-
+function read_cmproxml() {
 		 # Process items here
 		$line = chop($line);
 		$items = array();
@@ -115,8 +110,6 @@ function read_cmproxml()
 		'description' => $line,
 		'build' => 'Current'
 		);
-	
-
 }
 
 /*
