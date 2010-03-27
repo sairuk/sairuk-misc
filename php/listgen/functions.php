@@ -183,7 +183,7 @@ function process_upload($tmpfile) {
     if (move_uploaded_file($_FILES['fixfile']['tmp_name'], $uploadfile)) {
         $fixfile = $uploadfname;
 		$i = 0;
-        $lines = file($fixfile);
+        $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
             $i++;
 			if (($i == "1") && (preg_match('/You are Missing|You Have/i',$line))) {
