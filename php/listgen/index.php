@@ -12,7 +12,7 @@ require('functions.php');
 
 # Project information
 $projName = "listgen";
-$projVer = "v0.4";
+$projVer = "v0.5";
 $projAuth = "sairuk";
 
 
