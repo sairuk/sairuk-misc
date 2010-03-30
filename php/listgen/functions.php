@@ -7,10 +7,11 @@
  */
 function genFunction($inType,$skipLines,$fTypeTitle) {
 	
-	global $fixfile, $name, $outfile, $ext, $xmlhndl;
+	global $fixfile, $name, $outfile, $ext, $xmlhndl, $csIDstr;
 	
     $i = "0";
-	$name = cleanSessionID($outfile);
+	cleanSessionID($outfile);
+	$name = $csIDstr;
 	
     if (file_exists($fixfile) && is_readable ($fixfile)) {
 
@@ -179,8 +180,11 @@ function process_upload($tmpfile) {
  */
 function create_link($zipfile) {
 
+	global $csIDstr;
+	
 	if (file_exists($zipfile)) {
-		$hreftitle = cleanSessionID($zipfile);
+		cleanSessionID($zipfile);
+		$hreftitle = $csIDstr;
 		echo (' 
 				<tr>
 				<td>
@@ -239,8 +243,8 @@ function switchOutput($pstQueue) {
 }
 
 function cleanSessionID($string) {
-	global $sessionID;
-	str_replace($sessionID . '/','',$string);
+	global $sessionID, $csIDstr;
+	$csIDstr = str_replace($sessionID . '/','',$string);
 }
 
 
