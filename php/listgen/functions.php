@@ -15,7 +15,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 	
     if (file_exists($fixfile) && is_readable ($fixfile)) {
 
-    	$outfile = $sessionID . $outfile;
+    	$outfile = $sessionID .'/'. $outfile;
     	
     	print $fTypeTitle."<br />";
     	
