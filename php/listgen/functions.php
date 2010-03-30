@@ -186,7 +186,7 @@ function create_link($zipfile) {
 
 function switchOutput($pstQueue) {
 	
-	global $fixfile;
+	global $fixfile, $name;
 	
     $name = substr($fixfile,0,strlen($fixfile)-4);
 

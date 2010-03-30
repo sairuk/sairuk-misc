@@ -17,13 +17,7 @@ $projAuth = "sairuk";
 
 
 # Global Variables
-global $modname;
-global $fixfile;
-global $ext;
-global $name;
-global $outfile;
-global $xmlhndl;
-global $rompath;
+global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath;
 
 # If page is reloaded from form with ext passed
 # populate $ext 
@@ -129,13 +123,14 @@ if (isset($_POST['rompath']))
 
 <?php
 
-# Setup Output Module
-switchOutput($_POST['queue']);
-
 # Process File Upload
 if (isset($_FILES['fixfile']['name'])) 
 {
     $fixfile = $_FILES['fixfile']['name'];
+
+	# Setup Output Module
+	switchOutput($_POST['queue']);   
+    
     $tmpfile = $_FILES['fixfile']['tmp_name'];
     process_upload($tmpfile);
 }
