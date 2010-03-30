@@ -1,9 +1,0 @@
-CDROM="/dev/dvd1"
-
-if [ -e "$1" ] && [ -e ${CDROM} ]; then
- growisofs -dvd-compat -Z ${CDROM}="$1" -speed=6
- ejectsound
- exit 0
-fi
-
-echo "ERROR, paths not found"
