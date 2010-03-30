@@ -21,8 +21,6 @@ function writeout_header()
   $matchtype = "None";      // Filter out files that do not match our items
   $matchcase = "0";
 
-echo $name;
-
     fwrite($xmlhndl ,'<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>'."\n");
     fwrite($xmlhndl ,'<FileZilla3>'."\n");
     fwrite($xmlhndl ,'    <Filters>'."\n");
