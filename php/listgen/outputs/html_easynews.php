@@ -2,6 +2,8 @@
 
 ### EasyNews output module
 
+global $modname, $outfile;
+
 $modname = 'EasyNews Global Search';
 $outfile = "$name.html";
 

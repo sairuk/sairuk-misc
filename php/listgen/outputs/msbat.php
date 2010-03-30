@@ -2,6 +2,8 @@
 
 ### MSDOS BATCH output module
 
+global $modname, $outfile;
+
 $modname = 'MSDOS batch';
 $outfile = "$name.bat";
 

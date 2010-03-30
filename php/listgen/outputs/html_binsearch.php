@@ -2,6 +2,8 @@
 
 ### Binsearch output module
 
+global $modname, $outfile;
+
 $modname = 'binsearch.info';
 $outfile = "$name.html";
 

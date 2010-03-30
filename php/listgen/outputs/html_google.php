@@ -2,6 +2,8 @@
 
 ### Google output module
 
+global $modname, $outfile;
+
 $modname = 'Google Search';
 $outfile = "$name.html";
 

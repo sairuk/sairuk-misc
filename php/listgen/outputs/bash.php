@@ -2,6 +2,8 @@
 
 ### BASH script output module
 
+global $modname, $outfile;
+
 $modname = 'Bash Script';
 $outfile = "$name.sh"; 
 

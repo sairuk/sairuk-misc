@@ -4,6 +4,8 @@
 #
 # Builds a filezilla filters.xml
 
+global $modname, $outfile;
+
 $modname = 'FileZilla Filter';
 $outfile = "filters.xml";
 

@@ -4,6 +4,8 @@
 #
 # Builds a mGalaxy mg_mamedb.xml
 
+global $modname, $outfile;
+
 $modname = 'mGalaxy Database';
 $outfile = "mg_mamedb.xml";   
 		

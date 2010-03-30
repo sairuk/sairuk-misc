@@ -4,6 +4,8 @@
 #
 # A text list with extension appended, used with wget -i
 
+global $modname, $outfile;
+
 $modname = 'wget queue';
 $outfile = "$name.wget";
 

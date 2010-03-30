@@ -4,6 +4,8 @@
 #
 # Builds roms list for XBMC-Launcher, needs to be manually added to launchers.xml
 
+global $modname, $outfile;
+
 $modname = 'XBMC-Launcher';
 $outfile = "xbmc-launcher_roms.xml";   
 		

@@ -2,6 +2,8 @@
 
 ### MAMEWAH LST/INI output module
 
+global $modname, $outfile;
+
 $modname = 'MameWah &lt;1.67 Filtered Lists';
 $outfile = $name;
 
