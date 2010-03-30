@@ -7,7 +7,7 @@
  */
 function genFunction($inType,$skipLines,$fTypeTitle) {
 	
-	global $fixfile, $name, $outfile, $ext, $xmlhndl, $csIDstr;
+	global $fixfile, $name, $outfile, $ext, $xmlhndl, $csIDstr, $sessionID;
 	
     $i = "0";
 	cleanSessionID($outfile);
@@ -15,7 +15,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 	
     if (file_exists($fixfile) && is_readable ($fixfile)) {
 
-    	$outfile = $uploaddir . $outfile;
+    	$outfile = $sessionID . $outfile;
     	
     	print $fTypeTitle."<br />";
     	
