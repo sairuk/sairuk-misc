@@ -17,7 +17,7 @@ $projAuth = "sairuk";
 
 
 # Global Variables
-global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath;
+global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID;
 
 # If page is reloaded from form with ext passed
 # populate $ext 
