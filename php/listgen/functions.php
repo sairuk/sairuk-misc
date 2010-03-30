@@ -10,10 +10,12 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 	global $fixfile, $name, $outfile, $ext, $xmlhndl;
 	
     $i = "0";
-	$name = preg_replace('/' . session_id() . '_/','',$outfile);
+	$name = cleanSessionID($outfile);
 	
     if (file_exists($fixfile) && is_readable ($fixfile)) {
 
+    	$outfile = $uploaddir . $outfile;
+    	
     	print $fTypeTitle."<br />";
     	
     	# File write header, open file for writing
@@ -128,7 +130,7 @@ function read_mamexml($skiplines)
  */
 function process_upload($tmpfile) {
 	
-	global $fixfile;
+	global $fixfile, $sessionID;
 	
     $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/listgen/' . $sessionID . '/';
 
@@ -139,7 +141,7 @@ function process_upload($tmpfile) {
     $uploadfname = basename($_FILES['fixfile']['name']);
     $uploadfile = $uploaddir . $uploadfname;
     if (move_uploaded_file($_FILES['fixfile']['tmp_name'], $uploadfile)) {
-        $fixfile = $uploadfname;
+        $fixfile = $uploaddir . $uploadfname;
 		$i = 0;
         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
@@ -178,7 +180,7 @@ function process_upload($tmpfile) {
 function create_link($zipfile) {
 
 	if (file_exists($zipfile)) {
-		$hreftitle = preg_replace('/' . session_id() . '_/','',$zipfile);
+		$hreftitle = cleanSessionID($zipfile);
 		echo (' 
 				<tr>
 				<td>
@@ -234,6 +236,11 @@ function switchOutput($pstQueue) {
           echo "Nothing to do here either jim";
     	}
 
+}
+
+function cleanSessionID($string) {
+	global $sessionID;
+	str_replace($sessionID . '/','',$string);
 }
 
 
