@@ -7,8 +7,9 @@ PARFILE=`find ${INPUT} -name "*.par2" -print -quit`
 
 if [ ${PARFILE} ]; then
  echo "Found ${PARFILE}"
- PAR2MISS=`par2repair "${PARFILE}" | grep -o "missing"`
- if [ ${PAR2MISS} ]; then
+ PAR2MISS=`par2repair "${PARFILE}" | grep -o "Repair is not possible."`
+ echo $PAR2MISS
+ if [ "${PAR2MISS}" ]; then
   echo "PAR2 Repair incomplete, running with output"
   par2repair "${PARFILE}"
   exit 1
