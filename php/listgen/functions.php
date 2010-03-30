@@ -7,13 +7,7 @@
  */
 function genFunction($inType,$skipLines,$fTypeTitle) {
 	
-	global $fixfile;
-	global $name;
-	global $outfile;
-	global $ext;
-	global $xmlhndl;
-
-	switchOutput($_POST['queue']);
+	global $fixfile, $name, $outfile, $ext, $xmlhndl;
 	
     $i = "0";
 	$name = preg_replace('/' . session_id() . '_/','',$outfile);
@@ -30,7 +24,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
 			$i++;
-			
+		$xmlhndl = @fopen($outfile,"a");			
         	# Custom Items Start Here
         	switch ($inType) {
         		# Cowering's Goodtools Have/Miss Text Format
@@ -56,10 +50,6 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
            		echo "Nothing to do here either jim";
         	}
         	
-		# File write contents, open file for append
-		$xmlhndl = @fopen($outfile,"a");
-		writeout_contents($items);
-        	
         }
 		
 		# File write footer, open file for append
@@ -73,6 +63,7 @@ function genFunction($inType,$skipLines,$fTypeTitle) {
 }
 
 function build_itemArray($line,$build) {
+	
 		$line = chop($line);
 		$items = array();
 		$items [] = array(
@@ -85,6 +76,8 @@ function build_itemArray($line,$build) {
 		'description' => $line,
 		'build' => $build
 		);
+		# File write contents, open file for append		
+		writeout_contents($items);
 }
 
 /*

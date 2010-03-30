@@ -129,6 +129,9 @@ if (isset($_POST['rompath']))
 
 <?php
 
+# Setup Output Module
+switchOutput($_POST['queue']);
+
 # Process File Upload
 if (isset($_FILES['fixfile']['name'])) 
 {
