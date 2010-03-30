@@ -137,7 +137,7 @@ function process_upload($tmpfile) {
 	
 	global $fixfile;
 
-    $uploaddir = '/var/www/listgen/';
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/listgen/';
 	$uploadfname = basename($_FILES['fixfile']['name']);
     $uploadfile = $uploaddir . $uploadfname;
     if (move_uploaded_file($_FILES['fixfile']['tmp_name'], $uploadfile)) {
