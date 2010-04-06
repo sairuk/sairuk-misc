@@ -3,7 +3,7 @@
 # Takes Current Directory as Input if not arguement on cli
 INPUT=$1
 
-PARFILE=`find ${INPUT} -name "*.par2" -print -quit`
+PARFILE=`find ${INPUT} -iname "*.par2" -print -quit`
 
 if [ ${PARFILE} ]; then
  echo "Found ${PARFILE}"

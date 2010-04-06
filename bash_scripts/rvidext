@@ -2,7 +2,7 @@
 
 INPUT=$1
 
-RARFILE=`find ${1} -name "*.rar" -print -quit`
+RARFILE=`find ${1} -iname "*.rar" -print -quit`
 
 DEST="/usr/media-library/videos/Movies (LQ)/"
 
