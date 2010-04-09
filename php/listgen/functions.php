@@ -5,7 +5,7 @@
  * once file is identified
  * 
  */
-function genFunction($inType,$skipLines,$fTypeTitle) {
+function genFunction($inType,$skiplines,$fTypeTitle) {
 	
 	global $fixfile, $name, $outfile, $ext, $xmlhndl, $csIDstr, $sessionID;
 	
