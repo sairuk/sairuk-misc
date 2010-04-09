@@ -2,8 +2,10 @@
 
 body 
 {
+	font-size:12px;
 	background: #FFFFFF;
 	color: #000000;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 td 
 {
