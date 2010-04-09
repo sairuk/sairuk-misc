@@ -133,7 +133,7 @@ function process_upload($tmpfile) {
 	
 	global $fixfile, $sessionID;
 	
-    $uploaddir = dirname("index.php") . $sessionID . '/';
+    $uploaddir = dirname("index.php") . '/' . $sessionID . '/';
 
     if (!is_dir($uploaddir)) {
     	mkdir($uploaddir);
