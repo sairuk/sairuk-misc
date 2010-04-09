@@ -74,9 +74,39 @@ if (isset($_POST['rompath']))
 						<tr>
 							<td colspan="2">
 								<form enctype="multipart/form-data" action="index.php" method="post">
+								Select Input File<br />
 								<input type="file" name="fixfile" size="50%" title="Select input file"/><br />
 							</td>
-							<td align="right" valign="top">
+							<td align="left" valign="top">
+							Select Output Format<br />
+									 <select name="queue" title="Select output format">
+										 <option>Copy Scripts</option>									 
+										 <option value="msbat">• MSDOS batch</option>
+										 <option value="bash">• Bash Script</option>
+										 <option>&nbsp;</option>	
+										 <option>Emulator Frontends</option>
+										 <option value="mamewah" title="Only supported for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
+										 <option value="mamewah168" title="Only supported for Goodtxts">• MameWah 1.68 Filtered Lists</option>
+										 <option value="mGalaxy" title="Version number must be manually added final output">• mGalaxy Database</option>
+										 <option value="xbmc-launcher">• XBMC Launcher Rom List</option>
+										 <option>&nbsp;</option>	
+										 <option>File Transfer Queues</option>
+										 <option value="filezilla">• FileZilla Filter</option>
+										 <option value="wget">• wget queue</option>
+										 <option>&nbsp;</option>	
+										 <option>HTML Listings</option>
+										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">• Web Search (Multiple)</option>
+										 <option value="binsearch">• binsearch.info</option>
+										 <option value="easynews">• EasyNews Search</option>
+										 <option value="google">• Google Search</option>
+										 <option>&nbsp;</option>	
+									 </select>
+							</td>
+						</tr>
+						<tr>
+							<td>Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." /></td>
+							<td align="left" valign="top">
+									Extension:
 									 <select name="ext" title="Select used extenstion">
 										 <option value="7z">7z</option>
 										 <option value="rar">rar</option>
@@ -84,34 +114,7 @@ if (isset($_POST['rompath']))
 										 <option value="custom">custom</option>
 									 </select><input type="text" name="custext" size="4" title="Enter Custom Extension"/>
 							</td>
-						<tr>
-							<td>
-									 <select name="queue" title="Select output format">
-										 <option>Copy Scripts</option>									 
-										 <option value="msbat">- MSDOS batch</option>
-										 <option value="bash">- Bash Script</option>
-										 <option>&nbsp;</option>	
-										 <option>Emulator Frontends</option>
-										 <option value="mamewah">- MameWah &lt;1.67 Filtered Lists</option>
-										 <option value="mamewah168">- MameWah 1.68 Filtered Lists</option>
-										 <option value="mGalaxy">- mGalaxy Database</option>
-										 <option value="xbmc-launcher">- XBMC Launcher Rom List</option>
-										 <option>&nbsp;</option>	
-										 <option>File Transfer Queues</option>
-										 <option value="filezilla">- FileZilla Filter</option>
-										 <option value="wget">- wget queue</option>
-										 <option>&nbsp;</option>	
-										 <option>HTML Listings</option>
-										 <option value="htmlall" selected="selected">- Web Search All</option>
-										 <option value="binsearch">- binsearch.info</option>
-										 <option value="easynews">- EasyNews Search</option>
-										 <option value="google">- Google Search</option>
-										 <option>&nbsp;</option>	
-									 </select>
-							</td>
-							<td>
-									 Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." />
-							</td>
+
 							<td align="right">
 									<input type="submit" name="datrun" value="Process"/>
 								</form>
@@ -121,7 +124,7 @@ if (isset($_POST['rompath']))
                 </td>
 				</tr>
 		<tr>
-			<td colspan="3">
+			<td colspan="3">&nbsp;<br />
 				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>&nbsp --- &nbsp;<a href="/listgen">Reload Page</a>
 				<hr></hr>
 			</td>
