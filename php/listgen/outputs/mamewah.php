@@ -336,7 +336,7 @@ function writeout_footer() {
 	global $outfile;
 	global $ziplst;
 	global $zipini;
-
+	
 	mwzipfiles($outfile,$ziplst);
 	mwzipfiles($outfile,$zipini);
 	
@@ -439,48 +439,5 @@ function write_mwini($outfile,$name) {
 				   
 }
 
-function mwzipfiles($outfile,$names) {
-
-        /* ZIP Function specifically for MameWah
-         *
-         * Creates ini/ and files/ directories copies *.lst and *.ini to
-         * the appropriate directories
-         *
-         * Moves Files to ZIP
-         *
-         */
-
-        $zip = new ZipArchive();
-        $filename = "./$outfile.zip";
-
-        if ($zip->open($filename, ZIPARCHIVE::CREATE)!==TRUE) {
-                exit("cannot open <$filename>\n");
-        }
-
-        $zip->addEmptyDir('ini');
-        $zip->addEmptyDir('files');
-
-        foreach ($names AS $name) {
-
-
-        if ( !preg_match('/zip$/',$name)) {
-
-                if ( preg_match('/ini$/',$name)) {
-                        $zip->addFile($thisdir . $name, "ini/".$name);
-                        unlink($name);
-                }
-                if ( preg_match('/lst$/',$name)) {
-                        $zip->addFile($thisdir . $name, "files/".$name);
-                        unlink($name);
-                }
-
-        }
-
-
-        }
-
-        $zip->close();
-
-}
 
 ?>
