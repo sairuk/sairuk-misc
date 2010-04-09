@@ -12,7 +12,7 @@ require('functions.php');
 
 # Project information
 $projName = "listgen";
-$projVer = "v0.5";
+$projVer = "v0.6";
 $projAuth = "sairuk";
 
 
@@ -95,6 +95,7 @@ if (isset($_POST['rompath']))
 										 <option value="wget">- wget queue</option>
 										 <option>&nbsp;</option>	
 										 <option>HTML Listings</option>
+										 <option value="htmlall">- All</option>
 										 <option value="binsearch">- binsearch.info</option>
 										 <option value="easynews">- EasyNews Search</option>
 										 <option value="google">- Google Search</option>

@@ -225,6 +225,9 @@ function switchOutput($pstQueue) {
         case easynews:
           require('outputs/html_easynews.php');
 		  break; 
+        case htmlall:
+          require('outputs/html_all.php');
+		  break; 
         case mamewah:
           require('outputs/mamewah.php');
 		  break; 
