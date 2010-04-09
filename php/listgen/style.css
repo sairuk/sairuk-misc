@@ -8,7 +8,9 @@ body
 td 
 {
 	font-size:12px;
-	font-family: arial;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding: 5px;
+	border:1px solid #98bf21;
 }
 select
 {
@@ -18,8 +20,4 @@ select
 input
 {
 	font-weight: bold;
-}
-td
-{
-	cell-padding: 5px;
 }
