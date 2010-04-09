@@ -120,6 +120,7 @@ if (isset($_POST['rompath']))
 				<a href="/listgen">Reload Page</a><br />
 				* listxml Needs a large memcache for php >128mb, limited item support<br />
 				** only used for xbmc-launcher output<br />
+				<hr></hr>
 			</td>
 		</tr>
 		</table>
