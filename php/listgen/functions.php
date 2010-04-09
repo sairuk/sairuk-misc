@@ -133,10 +133,11 @@ function process_upload($tmpfile) {
 	
 	global $fixfile, $sessionID;
 	
-    $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/listgen/' . $sessionID . '/';
+    $uploaddir = dirname("index.php") . $sessionID . '/';
 
     if (!is_dir($uploaddir)) {
     	mkdir($uploaddir);
+    	chmod($uploaddir, 0777);
     }
     
     $uploadfname = basename($_FILES['fixfile']['name']);
