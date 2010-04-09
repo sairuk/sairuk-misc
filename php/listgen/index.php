@@ -60,7 +60,7 @@ if (isset($_POST['rompath']))
         <table border="0" width="50%">
             <tr>
                  <td><h3><?php print $projName .' '. $projVer ?></h3>
-                        Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />&nbsp;<br />* listxml Needs a large memcache for php >128mb, limited item support
+                        Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />
                  </td>
              </tr>
             <tr>
@@ -105,7 +105,7 @@ if (isset($_POST['rompath']))
 									 </select>
 							</td>
 							<td>
-									 Path:(ROMs)<input type="text" name="rompath" title="Required for XBMC-Launcher only." />
+									 Path:(ROMs)<input type="text" name="rompath" title="Required for XBMC-Launcher only." />**
 							</td>
 							<td align="right">
 									<input type="submit" name="datrun" value="Process"/>
@@ -117,7 +117,9 @@ if (isset($_POST['rompath']))
 				</tr>
 		<tr>
 			<td colspan="3">
-				<a href="/listgen">Reload Page</a>
+				<a href="/listgen">Reload Page</a><br />
+				* listxml Needs a large memcache for php >128mb, limited item support<br />
+				** only used for xbmc-launcher output<br />
 			</td>
 		</tr>
 		</table>

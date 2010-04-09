@@ -9,14 +9,23 @@ td
 {
 	font-size:12px;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	padding: 5px;
+	padding-right: 24px;
+	padding-bottom: 3px;
+
 }
 select
 {
 	color: white;
-	background: #5C5858;		
+	background: #5C5858;
 }
 input
 {
 	font-weight: bold;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+
+}
+h3
+{
+	font-size:24px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	
 }
