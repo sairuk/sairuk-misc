@@ -14,7 +14,7 @@ require('functions.php');
 
 # Project information
 $projName = "listgen";
-$projVer = "v0.6 SVN (Build$Rev: 35 )";
+$projVer = "v0.6 SVN (Build:$Rev$)";
 $projAuth = "sairuk";
 
 
