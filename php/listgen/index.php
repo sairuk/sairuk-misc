@@ -1,8 +1,10 @@
 <?php
-
 /*
  * listgen indesx.php
  *  
+ * $Author:$
+ * $Id:$
+ * $Rev$
  *  
  * Enter Description
  */ 
@@ -12,7 +14,7 @@ require('functions.php');
 
 # Project information
 $projName = "listgen";
-$projVer = "v0.6";
+$projVer = "v0.6 SVN ($Rev$)";
 $projAuth = "sairuk";
 
 
@@ -52,7 +54,7 @@ if (isset($_POST['rompath']))
 <html>
     <head>
     <title><?php print $projName .' '. $projVer ?></title>
-	<link ref="style.css" type="stylsheet/text"></link>
+	<link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <table border="0" width="50%">

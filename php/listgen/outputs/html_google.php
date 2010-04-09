@@ -29,7 +29,7 @@ function writeout_contents($items)
 	{
 		$title = $item['value'];
 		$item = preg_replace('/\s/','+',$item);
-		fwrite($xmlhndl , "<a href=".chr(34)."http://www.google.com.au/search?q=".$item['value'].chr(34).">".$title."</a></a><br />"."\n");
+		fwrite($xmlhndl , "<a href=".chr(34)."http://www.google.com.au/search?q=".$item['value'].chr(34)." target=".chr(34)._blank.chr(34).">".$title."</a></a><br />"."\n");
 	}
         
 }

@@ -19,3 +19,7 @@ input
 {
 	font-weight: bold;
 }
+td
+{
+	cell-padding: 5px;
+}
