@@ -59,7 +59,7 @@ if (isset($_POST['rompath']))
     <body>
         <table border="0" width="50%">
             <tr>
-                 <td><h3><?php print $projName .' '. $projVer ?></h3>
+                 <td><img src="listgen.png" border="0"></img>
                         Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />
                  </td>
              </tr>
