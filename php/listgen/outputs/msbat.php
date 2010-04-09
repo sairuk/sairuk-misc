@@ -11,8 +11,8 @@ function writeout_header()
 {
 	global $xmlhndl;
    
-   fwrite($xmlhndl , "@echo off"."\n");
-   fwrite($xmlhndl , "md _goodfill"."\n");
+   fwrite($xmlhndl , "@echo off"."\r\n");
+   fwrite($xmlhndl , "md _goodfill"."\r\n");
         
 }
 
@@ -23,7 +23,7 @@ function writeout_contents($items)
         
         foreach ($items AS $item)
         {
-            fwrite($xmlhndl , "copy ".chr(34).$item['value'].".*".chr(34)." _goodfill"."\n");
+            fwrite($xmlhndl , "copy ".chr(34).$item['value'].".*".chr(34)." _goodfill"."\r\n");
         }
         
 }

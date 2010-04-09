@@ -23,7 +23,7 @@ function writeout_contents($items)
         
         foreach ($items AS $item)
         {
-            fwrite($xmlhndl , "cp ".chr(34).$item['value'].".*".chr(34)." _goodfill/"."\n");
+            fwrite($xmlhndl , "cp ".chr(34).$item['value'].".*".chr(34)." ./_goodfill/"."\n");
         }
         
 }
