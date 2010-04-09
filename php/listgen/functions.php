@@ -252,4 +252,12 @@ function cleanSessionID($string) {
 }
 
 
+/** Returns revision number <--- Borrowed from google ;)  */
+function getSCID() {
+    $svnid = '$Rev$';
+    $scid = substr($svnid, 6);
+    return intval(substr($scid, 0, strlen($scid) - 2));
+}
+
+
 ?>

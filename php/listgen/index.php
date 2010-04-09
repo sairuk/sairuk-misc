@@ -14,7 +14,7 @@ require('functions.php');
 
 # Project information
 $projName = "listgen";
-$projVer = "v0.6";
+$projVer = "v0.7";
 $projAuth = "sairuk";
 
 
@@ -53,14 +53,19 @@ if (isset($_POST['rompath']))
 ?>
 <html>
     <head>
-    <title><?php print $projName .' '. $projVer ?></title>
+    <title><?php print $projName .' '. $projVer . ' (SVN Version: '.getSCID().')'?></title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <table border="0" width="50%">
             <tr>
                  <td><img src="listgen.png" border="0"></img>
-                        Accepts miss/have txts, cmpro fixdats & mame listxml*, converts to chosen output formats.<br />
+                        Accepts:
+                        <ul type="disc"> 
+                        <li>Cowering GoodTools formatted miss/have txts</li>
+						<li>CLRMame fixdats (newer XML fixdats)</li>
+						<li>Mame ListXML (NOT AVAILABLE, requires >128mb memcache)</li>
+						</ul>
                  </td>
              </tr>
             <tr>
@@ -93,11 +98,11 @@ if (isset($_POST['rompath']))
 										 <option value="xbmc-launcher">- XBMC Launcher Rom List</option>
 										 <option>&nbsp;</option>	
 										 <option>File Transfer Queues</option>
-										 <option value="filezilla" selected="selected">- FileZilla Filter</option>
+										 <option value="filezilla">- FileZilla Filter</option>
 										 <option value="wget">- wget queue</option>
 										 <option>&nbsp;</option>	
 										 <option>HTML Listings</option>
-										 <option value="htmlall">- All</option>
+										 <option value="htmlall" selected="selected">- Web Search All</option>
 										 <option value="binsearch">- binsearch.info</option>
 										 <option value="easynews">- EasyNews Search</option>
 										 <option value="google">- Google Search</option>
@@ -105,7 +110,7 @@ if (isset($_POST['rompath']))
 									 </select>
 							</td>
 							<td>
-									 Path:(ROMs)<input type="text" name="rompath" title="Required for XBMC-Launcher only." />**
+									 Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." />
 							</td>
 							<td align="right">
 									<input type="submit" name="datrun" value="Process"/>
@@ -117,9 +122,7 @@ if (isset($_POST['rompath']))
 				</tr>
 		<tr>
 			<td colspan="3">
-				<a href="/listgen">Reload Page</a><br />
-				* listxml Needs a large memcache for php >128mb, limited item support<br />
-				** only used for xbmc-launcher output<br />
+				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>&nbsp --- &nbsp;<a href="/listgen">Reload Page</a>
 				<hr></hr>
 			</td>
 		</tr>
