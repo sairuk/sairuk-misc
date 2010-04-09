@@ -64,7 +64,7 @@ if (isset($_POST['rompath']))
                         <ul type="disc"> 
                         <li>Cowering GoodTools formatted miss/have txts</li>
 						<li>CLRMame fixdats (newer XML fixdats)</li>
-						<li>Mame ListXML (NOT AVAILABLE, requires >128mb memcache)</li>
+						<li>Mame ListXML (NOT AVAILABLE, requires >128mb memory_limit)</li>
 						</ul>
                  </td>
              </tr>
