@@ -13,7 +13,10 @@ function writeout_header()
 	global $xmlhndl;
 	
 	fwrite($xmlhndl , "<html>"."\n");
+	fwrite($xmlhndl , "<head>"."\n");
 	fwrite($xmlhndl , "<title>binsearch.info Links for ".$name."</title>"."\n");
+	fwrite($xmlhndl , "<link rel=".chr(34)."stylesheet".chr(34)." type=".chr(34)."text/css".chr(34)." href=".chr(34)."/style.css".chr(34)." />\n");
+	fwrite($xmlhndl , "</head>"."\n");
 	fwrite($xmlhndl , "<body>"."\n");
 	fwrite($xmlhndl , "<h3>binsearch.info Links for ".$name."</h3>"."\n");
         
