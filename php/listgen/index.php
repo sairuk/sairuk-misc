@@ -104,7 +104,7 @@ if (isset($_POST['rompath']))
 							</td>
 						</tr>
 						<tr>
-							<td>Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." /></td>
+							<td align="left" valign="top">Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." /></td>
 							<td align="left" valign="top">
 									Extension:
 									 <select name="ext" title="Select used extenstion">
@@ -115,7 +115,7 @@ if (isset($_POST['rompath']))
 									 </select><input type="text" name="custext" size="4" title="Enter Custom Extension"/>
 							</td>
 
-							<td align="right">
+							<td align="right" valign="top">
 									<input type="submit" name="datrun" value="Process"/>
 								</form>
 							</td>
