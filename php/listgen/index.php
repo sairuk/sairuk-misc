@@ -54,7 +54,7 @@ if (isset($_POST['rompath']))
 <html>
     <head>
     <title><?php print $projName .' '. $projVer ?></title>
-	<link rel="stylesheet" type="text/css" href="<?php dirname("index.php") ?>/style.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <table border="0" width="50%">
