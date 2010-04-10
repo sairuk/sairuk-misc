@@ -153,12 +153,12 @@ function process_upload($tmpfile) {
 				genFunction("goodtxt","2","Recognised GoodTools style Miss/Have Text");
 				exit;
 			}
-			if (($i == "2") && (preg_match('/DOCTYPE mame/',$line)))	{
+			if (($i == "2" || $i == "3") && (preg_match('/DOCTYPE mame/',$line)))	{
 				# Valid MAME XML
 				genFunction("mamexml","85","Recognised MAME (XML)");
 				exit;
 			} 
-			if (($i == "7") && (preg_match('/FIXDAT/',$line)))	{
+			if (($i == "7" || $i == "8") && (preg_match('/FIXDAT/',$line)))	{
 				# Valid CMPRO Fixdat
 				genFunction("cmproxml","16","Recognised CMPro Fixdat (XML)");				
 				exit;
