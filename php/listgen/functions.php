@@ -187,7 +187,7 @@ function create_link($zipfile) {
 	if (file_exists($zipfile)) {
 		$fsize = filesize($zipfile) . ' bytes';
 		
-		if (filesize($zipfile) > $maxviewbytes ) {
+		if ((filesize($zipfile) > $maxviewbytes) || preg_match('/bat$|sh$|xml$/',$zipfile)  ) {
 			
 			// Clean filename
 			$zipinfo = pathinfo($zipfile);
