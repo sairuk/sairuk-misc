@@ -332,8 +332,10 @@ foreach ($names AS $name) {
 	cleanSessionID($name);
 	$name = getcwd() .'/'. $name;
 
+	$strdir = substr($csIDstr,0,strpos($csIDstr,"-"));
+	
 if ( preg_match('/ini$/',$name)) {	
-	$zip->addFile($name, "ini/".$csIDstr);
+	$zip->addFile($name, "config/".$strdir."/".$csIDstr);
 	} else if ( preg_match('/lst$/',$name)) {
 	$zip->addFile($name, "files/".$csIDstr);
 	} else {
