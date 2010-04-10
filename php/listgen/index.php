@@ -125,7 +125,10 @@ if (isset($_POST['rompath']))
 				</tr>
 		<tr>
 			<td colspan="3">&nbsp;<br />
-				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>&nbsp --- &nbsp;<a href="/listgen">Reload Page</a>
+				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>
+				&nbsp --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/wiki/wikilginfo">Wiki Page</a>
+				&nbsp --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/">Google Code</a>
+				&nbsp --- &nbsp;<a href="/listgen">Reload Page</a>
 				<hr></hr>
 			</td>
 		</tr>
