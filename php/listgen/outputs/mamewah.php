@@ -11,10 +11,8 @@ function writeout_header() {
 
 # setup array for zipping
 global $ziplst;
-global $zipini;
 
 $ziplst = array();
-$zipini = array();
 
 }
 
@@ -319,15 +317,16 @@ function write_lists($list,$title,$arrname,$outfile,$item,$lang,$trans,$status) 
 	 * status	Dump status determined from regex match
 	 * 
 	 */
+	
 	write_mwlst($outfile."-".$list.".lst",$item,$lang,$trans,$status);
 	write_mwini($outfile."-".$list.".ini",$title);
 	
-	/* Will build an array of filename for later processing
+	/* Will build an array of filenames for later processing
 	 * added to be used for the zipping process
 	 * 
 	 */
-	$ziplst["list$arrname.lst"] = $outfile."-".$list.".lst";
-	$zipini["list$arrname.ini"] = $outfile."-".$list.".ini";
+	array_push($ziplst,$outfile."-".$list.".lst");
+	array_push($ziplst,$outfile."-".$list.".ini");
 	
 }
 
@@ -335,10 +334,8 @@ function writeout_footer() {
 
 	global $outfile;
 	global $ziplst;
-	global $zipini;
 	
 	mwzipfiles($outfile,$ziplst);
-	mwzipfiles($outfile,$zipini);
 	
 	create_link($outfile.".zip");
 	unlink($outfile);
@@ -396,6 +393,8 @@ function write_mwlst($outfile,$item,$lang,$trans,$status) {
 
 function write_mwini($outfile,$name) {
 
+	global $csIDstr;
+	
 	/* Writes the Mamewah ini file for the lst
 	 * 
 	 * outfile	Output Filename
@@ -422,7 +421,8 @@ function write_mwini($outfile,$name) {
 	 * 
 	 */
 	
-	fwrite($xmlhndl , "### ".$outfile." ###"."\n");
+	cleanSessionID($outfile);	
+	fwrite($xmlhndl , "### ".$csIDstr." ###"."\n");
 	fwrite($xmlhndl , "\n");
 	fwrite($xmlhndl , "list_title ".$name."\n");
 	fwrite($xmlhndl ,  "\n");

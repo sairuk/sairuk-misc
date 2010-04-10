@@ -11,11 +11,9 @@ function writeout_header() {
 
 # setup array for zipping
 global $ziplst;
-global $zipini;
 global $newline;
 
 $ziplst = array();
-$zipini = array();
 
 $newline = "\r\n";
 
@@ -328,8 +326,8 @@ function write_lists($list,$title,$arrname,$outfile,$item,$lang,$trans,$status) 
 	 * added to be used for the zipping process
 	 * 
 	 */
-	$ziplst["list$arrname.lst"] = $outfile."-".$list.".lst";
-	$zipini["list$arrname.ini"] = $outfile."-".$list.".ini";
+	array_push($ziplst,$outfile."-".$list.".lst");
+	array_push($ziplst,$outfile."-".$list.".ini");
 	
 }
 
@@ -337,10 +335,8 @@ function writeout_footer() {
 
 	global $outfile;
 	global $ziplst;
-	global $zipini;
 
 	mwzipfiles($outfile,$ziplst);
-	mwzipfiles($outfile,$zipini);
 	
 	create_link($outfile.".zip");
 	unlink($outfile);
@@ -400,7 +396,8 @@ function write_mwlst($outfile,$item,$lang,$trans,$status) {
 function write_mwini($outfile,$name) {
 
 	global $newline;
-
+	global $csIDstr;
+	
 	/* Writes the Mamewah 1.68 ini file for the lst
 	 * 
 	 * outfile	Output Filename
@@ -428,7 +425,8 @@ function write_mwini($outfile,$name) {
 	 * 
 	 */
 
-	fwrite($xmlhndl , "### ".$outfile." (mamewah v1.68) ###".$newline);
+	cleanSessionID($outfile);	
+	fwrite($xmlhndl , "### ".$csIDstr." (mamewah v1.68) ###".$newline);
 	fwrite($xmlhndl , $newline);
 	fwrite($xmlhndl , "list_title                                ".$name.$newline);
 	fwrite($xmlhndl ,  $newline);

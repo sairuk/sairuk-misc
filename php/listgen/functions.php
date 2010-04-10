@@ -259,5 +259,43 @@ function getSCID() {
     return intval(substr($scid, 0, strlen($scid) - 2));
 }
 
+function mwzipfiles($outfile,$names) {
 
+global $csIDstr;
+	
+$file = tempnam("tmp", session_id());
+ 
+$zip = new ZipArchive();
+
+// Zip will open and overwrite the file, rather than try to read it.
+$zip->open($file, ZIPARCHIVE::OVERWRITE);
+
+$zip->addEmptyDir('files');
+$zip->addEmptyDir('ini');
+	
+foreach ($names AS $name) {
+	cleanSessionID($name);
+	$name = getcwd() .'/'. $name;
+
+if ( preg_match('/ini$/',$name)) {	
+	$zip->addFile($name, "ini/".$csIDstr);
+	} else if ( preg_match('/lst$/',$name)) {
+	$zip->addFile($name, "files/".$csIDstr);
+	}		
+}
+
+$zip->close();
+
+// Copy the file to the correct directory
+$outfile =  getcwd() .'/'. $outfile . ".zip";
+copy($file, $outfile);
+
+// Clean up old files, doesnt work in the foreach loop above
+foreach ($names AS $name) {
+	if (file_exists($name)) {
+	unlink($name);		
+	}
+}
+
+}
 ?>
