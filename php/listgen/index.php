@@ -19,7 +19,9 @@ $projAuth = "sairuk";
 
 
 # Global Variables
-global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID;
+global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID, $maxviewbytes;
+
+$maxviewbytes = "1048576";
 
 # If page is reloaded from form with ext passed
 # populate $ext 
@@ -64,7 +66,7 @@ if (isset($_POST['rompath']))
                         <ul type="disc"> 
                         <li>Cowering GoodTools formatted miss/have txts</li>
 						<li>CLRMame fixdats (newer XML fixdats)</li>
-						<li>Mame ListXML (NOT AVAILABLE, requires >128mb memory_limit)</li>
+						<li>Mame ListXML (requires >128mb memory_limit)</li>
 						</ul>
                  </td>
              </tr>

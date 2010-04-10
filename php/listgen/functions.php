@@ -182,14 +182,27 @@ function process_upload($tmpfile) {
 function create_link($zipfile) {
 
 	global $csIDstr;
+	global $maxviewbytes;
 	
 	if (file_exists($zipfile)) {
+		$fsize = filesize($zipfile) . ' bytes';
+		
+		if (filesize($zipfile) > $maxviewbytes ) {
+			
+			// Clean filename
+			$zipinfo = pathinfo($zipfile);
+			$zipbase = basename($zipfile,'.'.$zipinfo['extension']);
+			
+			// zip files
+			zipfiles($zipbase,$zipfile);
+			exit;
+		}
 		cleanSessionID($zipfile);
-		$hreftitle = $csIDstr;
+		$hreftitle = basename($csIDstr);
 		echo (' 
 				<tr>
 				<td>
-					Results: <a href="'.$zipfile.'" target="_blank">'.$hreftitle.'</a><br /> 
+					Results: <a href="'.session_id().'/'.basename($zipfile).'" target="_blank">'.$hreftitle.'</a> - '.$fsize.'<br /> 
 				</td>
 				 </tr>
 			 ');
@@ -259,6 +272,44 @@ function getSCID() {
     return intval(substr($scid, 0, strlen($scid) - 2));
 }
 
+function zipfiles($outfile,$name) {
+	
+
+	global $csIDstr, $sessionID;
+	cleanSessionID($name);
+	
+// Set outfile to correct name, then delete existing file
+$outfile =  getcwd() .'/'. $sessionID .'/'. $outfile . ".zip";
+$name = getcwd() .'/'. $name;
+
+if (file_exists($outfile)) {
+	unlink($outfile);
+}
+
+// Create temporary zip file
+$file = tempnam("tmp", session_id());
+$zip = new ZipArchive();
+
+echo "FILE:$file<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
+
+// Zip will open and overwrite the file, rather than try to read it.
+$zip->open($file, ZIPARCHIVE::OVERWRITE);
+$zip->addFile($name, $csIDstr);
+
+// Close zip
+$zip->close();
+
+// Copy the file to the correct directory
+copy($file, $outfile);
+
+	if (file_exists($name)) {
+	unlink($name);		
+	}
+
+create_link($outfile);
+		
+}
+
 function mwzipfiles($outfile,$names) {
 
 global $csIDstr;
@@ -285,7 +336,9 @@ if ( preg_match('/ini$/',$name)) {
 	$zip->addFile($name, "ini/".$csIDstr);
 	} else if ( preg_match('/lst$/',$name)) {
 	$zip->addFile($name, "files/".$csIDstr);
-	}		
+	} else {
+	$zip->addFile($name, $csIDstr);
+	}	
 }
 
 // Close zip
