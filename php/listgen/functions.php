@@ -262,17 +262,21 @@ function getSCID() {
 function mwzipfiles($outfile,$names) {
 
 global $csIDstr;
-	
+
+// Set outfile to correct name, then delete existing file
+$outfile =  getcwd() .'/'. $outfile . ".zip";
+if (file_exists($outfile)) {
+	unlink($outfile);
+}
+
+// Create temporary zip file
 $file = tempnam("tmp", session_id());
- 
 $zip = new ZipArchive();
 
 // Zip will open and overwrite the file, rather than try to read it.
 $zip->open($file, ZIPARCHIVE::OVERWRITE);
 
-$zip->addEmptyDir('files');
-$zip->addEmptyDir('ini');
-	
+// Put files in zip
 foreach ($names AS $name) {
 	cleanSessionID($name);
 	$name = getcwd() .'/'. $name;
@@ -284,10 +288,10 @@ if ( preg_match('/ini$/',$name)) {
 	}		
 }
 
+// Close zip
 $zip->close();
 
 // Copy the file to the correct directory
-$outfile =  getcwd() .'/'. $outfile . ".zip";
 copy($file, $outfile);
 
 // Clean up old files, doesnt work in the foreach loop above

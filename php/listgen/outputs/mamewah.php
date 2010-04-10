@@ -17,6 +17,8 @@ function writeout_header() {
 global $ziplst;
 
 $ziplst = array();
+
+global $newline;
 $newline = "\r\n";
 
 }
