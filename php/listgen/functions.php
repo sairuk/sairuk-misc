@@ -290,7 +290,7 @@ if (file_exists($outfile)) {
 $file = tempnam("tmp", session_id());
 $zip = new ZipArchive();
 
-echo "FILE:$file<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
+# echo "FILE:$file<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
 
 // Zip will open and overwrite the file, rather than try to read it.
 $zip->open($file, ZIPARCHIVE::OVERWRITE);
