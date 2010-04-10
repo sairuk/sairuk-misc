@@ -2,6 +2,10 @@
 
 ### MAMEWAH LST/INI output module
 
+# Can take a while to process the larger files (full set in NESHave.txt etc)
+ini_set("memory_limit","64M");
+ini_set("max_execution_time","240");
+
 global $modname, $outfile;
 
 $modname = 'MameWah &lt;1.67 Filtered Lists';
@@ -13,6 +17,7 @@ function writeout_header() {
 global $ziplst;
 
 $ziplst = array();
+$newline = "\r\n";
 
 }
 
@@ -343,6 +348,8 @@ function writeout_footer() {
 
 function write_mwlst($outfile,$item,$lang,$trans,$status) {
 
+	global $newline;
+	
 	/* Appends to the Mamewah lst file
 	 * 
 	 * outfile	Output Filename
@@ -373,19 +380,19 @@ function write_mwlst($outfile,$item,$lang,$trans,$status) {
 	 * 
 	 */
 
-	fwrite($xmlhndl , $item."\n");
-	fwrite($xmlhndl , $item."\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , $lang."\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , $trans."\n");
-	fwrite($xmlhndl , $status."\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "\n");
+	fwrite($xmlhndl , $item.$newline);
+	fwrite($xmlhndl , $item.$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $lang.$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $trans.$newline);
+	fwrite($xmlhndl , $status.$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , $newline);
 	
 	@fclose($xmlhndl);
 	
@@ -394,6 +401,7 @@ function write_mwlst($outfile,$item,$lang,$trans,$status) {
 function write_mwini($outfile,$name) {
 
 	global $csIDstr;
+	global $newline;
 	
 	/* Writes the Mamewah ini file for the lst
 	 * 
@@ -422,18 +430,18 @@ function write_mwini($outfile,$name) {
 	 */
 	
 	cleanSessionID($outfile);	
-	fwrite($xmlhndl , "### ".$csIDstr." ###"."\n");
-	fwrite($xmlhndl , "\n");
-	fwrite($xmlhndl , "list_title ".$name."\n");
-	fwrite($xmlhndl ,  "\n");
-	fwrite($xmlhndl , "### Games List Settings ###"."\n");
-	fwrite($xmlhndl , "cycle_list 1"."\n");
-	fwrite($xmlhndl , "list_type normal"."\n");
-	fwrite($xmlhndl , "display_clone_info 0"."\n");
-	fwrite($xmlhndl , "max_favorites 0"."\n");
-	fwrite($xmlhndl ,  "\n");
-	fwrite($xmlhndl , "### Settings used by MAMEWAH ###"."\n");
-	fwrite($xmlhndl , "current_game 1"."\n");
+	fwrite($xmlhndl , "### ".$csIDstr." ###".$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , "list_title ".$name.$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , "### Games List Settings ###".$newline);
+	fwrite($xmlhndl , "cycle_list 1".$newline);
+	fwrite($xmlhndl , "list_type normal".$newline);
+	fwrite($xmlhndl , "display_clone_info 0".$newline);
+	fwrite($xmlhndl , "max_favorites 0".$newline);
+	fwrite($xmlhndl , $newline);
+	fwrite($xmlhndl , "### Settings used by MAMEWAH ###".$newline);
+	fwrite($xmlhndl , "current_game 1".$newline);
 	
 	@fclose($xmlhndl);
 				   

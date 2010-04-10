@@ -2,6 +2,10 @@
 
 ### MAMEWAH LST/INI output module
 
+# Can take a while to process the larger files (full set in NESHave.txt etc)
+ini_set("memory_limit","64M");
+ini_set("max_execution_time","240");
+
 global $modname, $outfile;
 
 $modname = 'MameWah 1.68 Filtered Lists';
