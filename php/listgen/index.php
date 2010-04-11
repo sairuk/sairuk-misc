@@ -67,6 +67,7 @@ if (isset($_POST['rompath']))
                         <li>Cowering GoodTools formatted miss/have txts</li>
 						<li>CLRMame fixdats (newer XML fixdats)</li>
 						<li>Mame ListXML (requires >128mb memory_limit)</li>
+						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>
                  </td>
              </tr>
@@ -82,25 +83,27 @@ if (isset($_POST['rompath']))
 							<td align="left" valign="top">
 							Select Output Format<br />
 									 <select name="queue" title="Select output format">
+										 <option>HTML Listings</option>
+										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">• Web Search (Multiple)</option>
+										 <option value="binsearch">• binsearch.info</option>
+										 <option value="easynews">• EasyNews Search</option>
+										 <option value="ebayau">• eBay Australia Search</option>
+										 <option value="ebay">• eBay Search</option>
+										 <option value="google">• Google Search</option>
+										 <option>&nbsp;</option>	
+										 <option>File Transfer Queues</option>
+										 <option value="filezilla">• FileZilla Filter</option>
+										 <option value="wget">• wget queue</option>
+										 <option>&nbsp;</option>		
 										 <option>Copy Scripts</option>									 
 										 <option value="msbat">• MSDOS batch</option>
 										 <option value="bash">• Bash Script</option>
-										 <option>&nbsp;</option>	
+										 <option>&nbsp;</option>
 										 <option>Emulator Frontends</option>
 										 <option value="mamewah" title="Only supported for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
 										 <option value="mamewah168" title="Only supported for Goodtxts">• MameWah 1.68 Filtered Lists</option>
 										 <option value="mGalaxy" title="Version number must be manually added final output">• mGalaxy Database</option>
 										 <option value="xbmc-launcher">• XBMC Launcher Rom List</option>
-										 <option>&nbsp;</option>	
-										 <option>File Transfer Queues</option>
-										 <option value="filezilla">• FileZilla Filter</option>
-										 <option value="wget">• wget queue</option>
-										 <option>&nbsp;</option>	
-										 <option>HTML Listings</option>
-										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">• Web Search (Multiple)</option>
-										 <option value="binsearch">• binsearch.info</option>
-										 <option value="easynews">• EasyNews Search</option>
-										 <option value="google">• Google Search</option>
 										 <option>&nbsp;</option>	
 									 </select>
 							</td>

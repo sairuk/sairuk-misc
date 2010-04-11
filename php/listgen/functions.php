@@ -49,6 +49,10 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 				case mamexml:
           			read_mamexml($skiplines);
           		break;
+          		# Generic
+				case generic:
+          			build_itemArray($line,"Current");
+          		break;
 				default:
            		echo "Nothing to do here either jim";
         	}
@@ -164,9 +168,8 @@ function process_upload($tmpfile) {
 				exit;
 			} 
 			if ($i >= "9") {
-				# File Not Recognised
-				echo "ERROR: I do not recognise this file format<br />";
-				unlink($fixfile);
+				# File Not Recognised, treating as generic listing
+				genFunction("generic","0","File Not Recognised, treating as generic listing");				
 				exit;
 			}
 		}
@@ -231,6 +234,12 @@ function switchOutput($pstQueue) {
           break;
         case google:
           require('outputs/html_google.php');
+		  break;
+        case ebay:
+          require('outputs/html_ebay.php');
+		  break;  
+        case ebayau:
+          require('outputs/html_ebayau.php');
 		  break; 
         case binsearch:
           require('outputs/html_binsearch.php');

@@ -1,24 +1,25 @@
 <?php
 
-### Binsearch output module
+### Google output module
 
 global $modname, $outfile;
 
-$modname = 'binsearch.info';
+$modname = 'Ebay Australia Search';
 $outfile = "$name.html";
 
 function writeout_header()
 {
+
 	global $name;
 	global $xmlhndl;
-	
+
 	fwrite($xmlhndl , "<html>"."\n");
 	fwrite($xmlhndl , "<head>"."\n");
-	fwrite($xmlhndl , "<title>binsearch.info Links for ".$name."</title>"."\n");
+	fwrite($xmlhndl , "<title>Ebay Australia Search Links for ".$name."</title>"."\n");
 	fwrite($xmlhndl , "<link rel=".chr(34)."stylesheet".chr(34)." type=".chr(34)."text/css".chr(34)." href=".chr(34)."/style.css".chr(34)." />\n");
 	fwrite($xmlhndl , "</head>"."\n");
 	fwrite($xmlhndl , "<body>"."\n");
-	fwrite($xmlhndl , "<h3>binsearch.info Links for ".$name."</h3>"."\n");
+	fwrite($xmlhndl , "<h3>Ebay Australia Search Links for ".$name."</h3>"."\n");
         
 }
 
@@ -26,7 +27,7 @@ function writeout_contents($items)
 {
 
 	global $xmlhndl;
-	      
+        
 	foreach ($items AS $item)
 	{
 		$title = $item['value'];
@@ -34,7 +35,7 @@ function writeout_contents($items)
 		$item = preg_replace('/\s/','+',$item);
 		// Replace & with %26
 		$item = preg_replace('/&/','%26',$item);
-		fwrite($xmlhndl , "<a href=".chr(34)."http://www.binsearch.info/?q=".$item['value'].chr(34)." target=".chr(34)._blank.chr(34).">".$title."</a></a><br />"."\n");
+		fwrite($xmlhndl , "<a href=".chr(34)."http://shop.ebay.com.au/?_nkw=".$item['value'].chr(34)." target=".chr(34)._blank.chr(34).">".$title."</a></a><br />"."\n");
 	}
         
 }

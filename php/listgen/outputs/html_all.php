@@ -32,7 +32,10 @@ function writeout_contents($items)
 	foreach ($items AS $item)
 	{
 		$title = $item['value'];
+		// Replace Spaces with +
 		$item = preg_replace('/\s/','+',$item);
+		// Replace & with %26
+		$item = preg_replace('/&/','%26',$item);
 		fwrite($xmlhndl , "<tr><td>" . $title . "</td> 
 			<td><a href=".chr(34)."http://www.google.com.au/search?q=".$item['value'].chr(34)." target=".chr(34)._blank.chr(34).">google</a></a></td>
 			<td><a href=".chr(34)."http://www.binsearch.info/?q=".$item['value'].chr(34)." target=".chr(34)._blank.chr(34).">binsearch</a></a></td>
