@@ -45,6 +45,15 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 	          			build_itemArray($line,"Current");
 					} 
           		break;
+        		# Rommanger Dat Format
+          		case rommanager:
+					if ( $i > $skiplines ) {	
+						# Pull out the archive names
+						$line = explode('¬',$line);
+	          			build_itemArray($line[1],$line[6]);
+					} 
+          		break;
+          		
           		# MAME XML Formal
 				case mamexml:
           			read_mamexml($skiplines);
@@ -160,6 +169,11 @@ function process_upload($tmpfile) {
 			if (($i == "2" || $i == "3") && (preg_match('/DOCTYPE mame/',$line)))	{
 				# Valid MAME XML
 				genFunction("mamexml","85","Recognised MAME (XML)");
+				exit;
+			}
+			if (($i == "4" || $i == "5") && (preg_match('/[DAT]/',$line)))	{
+				# Valid Rommanger
+				genFunction("rommanager","9","Recognised Rommanager Dat");
 				exit;
 			} 
 			if (($i == "7" || $i == "8") && (preg_match('/FIXDAT/',$line)))	{
