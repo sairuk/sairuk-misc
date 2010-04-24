@@ -45,6 +45,20 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 	          			build_itemArray($line,"Current");
 					} 
           		break;
+        		# CLRMame Pro DAT Format
+          		case cmprodat:
+          			$myline = ltrim($line);
+          			if ((preg_match("/^name/",$myline)))
+	          			{ 
+	          				#echo $myline."<br />"; 
+	          			}
+          			if (( $i > $skiplines ) && (preg_match("/^name/",$myline))) {	
+          				# Pull out the archive names
+						preg_match( "/\"(.*?)\"/", $line, $gamename );
+						$line = preg_replace( "/\"/",'',$gamename[0] );
+	          			build_itemArray($line,"Current");
+					} 
+          		break;
         		# Rommanger Dat Format
           		case rommanager:
 					if ( $i > $skiplines ) {	
@@ -166,6 +180,11 @@ function process_upload($tmpfile) {
 				genFunction("goodtxt","2","Recognised GoodTools style Miss/Have Text");
 				exit;
 			}
+        	if (($i == "1") && (preg_match('/clrmamepro \(/i',$line))) {
+				# Valid CMPRO DAT File
+				genFunction("cmprodat","2","Recognised CMPro DAT");
+				exit;
+			}
 			if (($i == "2" || $i == "3") && (preg_match('/DOCTYPE mame/',$line)))	{
 				# Valid MAME XML
 				genFunction("mamexml","85","Recognised MAME (XML)");
@@ -177,7 +196,7 @@ function process_upload($tmpfile) {
 				exit;
 			} 
 			if (($i == "7" || $i == "8") && (preg_match('/FIXDAT/',$line)))	{
-				# Valid CMPRO Fixdat
+				# Valid CMPRO XML Fixdat
 				genFunction("cmproxml","16","Recognised CMPro Fixdat (XML)");				
 				exit;
 			} 
@@ -243,7 +262,13 @@ function switchOutput($pstQueue) {
         case msbat:
           require('outputs/msbat.php');
 		  break; 
-        case bash:
+        case CRCmsbat:
+          require('outputs/msbat-crc.php');
+		  break; 
+        case msbat-numbered:
+          require('outputs/msbat-numbered.php');
+		  break; 
+		case bash:
           require('outputs/bash.php');
           break;
         case google:

@@ -99,6 +99,10 @@ if (isset($_POST['rompath']))
 										 <option value="msbat">• MSDOS batch</option>
 										 <option value="bash">• Bash Script</option>
 										 <option>&nbsp;</option>
+										 <option>Rename Scripts</option>		
+										 <option value="CRCmsbat">• MSDOS batch CRC</option>
+										 <option value="msbat-numbered">• MSDOS batch NUM</option>
+										 <option>&nbsp;</option>
 										 <option>Emulator Frontends</option>
 										 <option value="mamewah" title="Only supported for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
 										 <option value="mamewah168" title="Only supported for Goodtxts">• MameWah 1.68 Filtered Lists</option>
