@@ -79,7 +79,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
         		# Cowering's Goodtools Have/Miss Text Format
 				case goodtxt:
 					if ( $i > $skiplines ) {
-          			build_itemArray("0","1",$line,"","","","","","","","","","","Current");
+          			build_itemArray("0","1",$line,"","",$ext,"","","","","","","","Current");
 					} 
           		break;
         		# CLRMame Pro XML Format, full parse
@@ -115,7 +115,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           				}
                         # If we match the end of the block, call the build_itemArray function          				
 						if (preg_match("/^\<\/game/",$myline)) {
-							build_itemArray("0","1",$gamename,"","","",$gamedesc,$gamemanu,$gameromname,$gameromsize,$gameromcrc,$gamerommd5,$gameromsha1,"Current");
+							build_itemArray("0","1",$gamename,"","",$ext,$gamedesc,$gamemanu,$gameromname,$gameromsize,$gameromcrc,$gamerommd5,$gameromsha1,"Current");
 						}
           			} 
           			break;
@@ -126,7 +126,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           				# Pull out the archive names
 						preg_match( "/\"(.*?)\"/", $line, $gamename );
 						$line = preg_replace( "/\"/",'',$gamename[0] );
-          				build_itemArray("0","1",$line,$line,$line,"",$line,$line,$line,"","","","","Current");
+          				build_itemArray("0","1",$line,$line,$line,$ext,$line,$line,$line,"","","","","Current");
 					}
           		break;
         		# Rommanger Dat Format
@@ -135,7 +135,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 						if (preg_match("/^¬/",$line)) {
 						# ¬parent name¬parent description¬game name¬game description¬rom name¬rom crc¬rom size¬romof name¬merge name¬
 						$line = explode('¬',$line);
-						build_itemArray("0","1",$line[1],$line[0],$line[7],"",$line[4],"",$line[5],$line[7],$line[6],"","","Current");
+						build_itemArray("0","1",$line[1],$line[0],$line[7],$ext,$line[4],"",$line[5],$line[7],$line[6],"","","Current");
 						}
 					}
           		break;
@@ -145,7 +145,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           		break;
           		# Generic
 				case generic:
-          			build_itemArray("1","0",$line,"","","","","","","","","","","Current");
+          			build_itemArray("1","0",$line,"","",$ext,"","","","","","","","Current");
           		break;
 				default:
            		echo "Nothing to do here either jim";
