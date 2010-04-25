@@ -270,7 +270,12 @@ function process_upload($tmpfile) {
 				exit;
 			} elseif ( preg_match('/DOCTYPE mame/',$HDR0) )	{
 				# Valid MAME XML
+				if ( ! ini_get('memory_limit') < 128 ) { 
 				genFunction("mamexml","85","Recognised MAME XML");
+				} else {
+					echo "<b><i> - (Not Support on this Server)</i></b>";
+					break;
+				}
 				exit;
 			} elseif ( preg_match('/CREDITS/',$HDR0) ) {
 				# Valid Rommanger
