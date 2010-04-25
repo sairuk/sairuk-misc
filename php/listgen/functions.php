@@ -79,7 +79,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
         		# Cowering's Goodtools Have/Miss Text Format
 				case goodtxt:
 					if ( $i > $skiplines ) {
-          			build_itemArray("0","1",$line,$line,$line,"",$line,$line,$line,"","","","","Current");
+          			build_itemArray("0","1",$line,"","","","","","","","","","","Current");
 					} 
           		break;
         		# CLRMame Pro XML Format, full parse
