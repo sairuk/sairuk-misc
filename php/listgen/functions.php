@@ -352,6 +352,7 @@ function switchOutput($pstQueue) {
           	require('outputs/bash.php');
           	break;
         case google:
+        	$modname = 'Google Search';
           	$outurl = "http://www.google.com.au/search?q=";
           	require('outputs/html_generic.php');
 		  	break;
