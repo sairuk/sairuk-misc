@@ -248,8 +248,18 @@ function process_upload($tmpfile) {
     $uploadfile = $uploaddir . $uploadfname;
     if (move_uploaded_file($_FILES['fixfile']['tmp_name'], $uploadfile)) {
         $fixfile = $uploaddir . $uploadfname;
-		$i = 0;
-        $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    	# Check if it is a binary file
+		$testBIN  = fopen($fixfile, "r"); 
+		$blk = fread($testBIN, 512);
+		fclose($testBIN);
+		if (substr_count($blk, "\x00") > 0 ) {
+			echo "<b>You uploaded a binary file!</b><br /> Please only upload ascii files.";
+			exit; 
+		}
+        
+		$i = 0;	
+        $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);       
         foreach ( $lines as $line ) {     	
             $i++;
             # Use first 4 lines to determine filetype
