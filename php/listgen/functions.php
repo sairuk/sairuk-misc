@@ -1,5 +1,46 @@
 <?php
 
+
+# Project information
+$projName = "listgen";
+$projVer = "v0.7";
+$projAuth = "sairuk";
+
+# Global Variables
+global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID, $maxviewbytes;
+
+$maxviewbytes = "1048576";
+
+# If page is reloaded from form with ext passed
+# populate $ext 
+if (isset($_POST['rompath']))
+{
+	# Set $ext to combo data
+	$ext = ".".$_POST['ext'];
+} else if ($_POST['ext'] == "custom" ) {
+	
+	# Set $ext to form data
+    $ext = ".".$_POST['custext'];
+} else {
+	# Clear $ext
+	$ext = "";
+}
+
+# Initialise Session Information
+session_start();
+$sessionID = session_id();
+
+
+# If page is reloaded from form with rompath passed
+# strip slashes from the path and print path to the 
+# screen
+if (isset($_POST['rompath']))
+{
+	$rompath = stripslashes($_POST['rompath']);
+	print $rompath;
+}
+
+
 /*
  * General Function, used to process all files
  * once file is identified
@@ -8,6 +49,11 @@
 function genFunction($inType,$skiplines,$fTypeTitle) {
 	
 	global $fixfile, $name, $outfile, $ext, $xmlhndl, $csIDstr, $sessionID;
+
+	# Hash lengths, too lazy to count chars.
+	$crclen = strlen("60c2b018");
+	$md5len = strlen("7e0d3d20349b75cbfb52f19b206da4d0");
+	$sha1len = strlen("58563e3ccb51bd9d8362aa17c23743bb5a593c3b");
 	
     $i = "0";
 	cleanSessionID($outfile);
@@ -26,55 +72,80 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 
         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
-			$i++;
+        $i++;
 		$xmlhndl = @fopen($outfile,"a");			
         	# Custom Items Start Here
         	switch ($inType) {
         		# Cowering's Goodtools Have/Miss Text Format
 				case goodtxt:
 					if ( $i > $skiplines ) {
-	          			build_itemArray($line,"Current");
+          			build_itemArray("0","1",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
 					} 
           		break;
-        		# CLRMame Pro XML Format
+        		# CLRMame Pro XML Format, full parse
           		case cmproxml:
-					if (( $i > $skiplines ) && ( substr($line,2,4) == "game")) {	
-						# Pull out the archive names
-						preg_match( "/\"(.*?)\"/", $line, $gamename );
-						$line = preg_replace( "/\"/",'',$gamename[0] );
-	          			build_itemArray($line,"Current");
-					} 
-          		break;
+          			$myline = ltrim($line);
+          			if (( $i > $skiplines )) {
+          				# Pull out the game names
+          				if (preg_match("/^\<game/",$myline)) {
+          				preg_match( "/\"(.*?)\"/", $line, $gamename );
+						$gamename = preg_replace( "/\"/",'',$gamename[0] );
+						} elseif (preg_match("/^\<description/",$myline)) {
+						# Pull out the game descriptions
+						preg_match( "/\"(.*?)\"/", $line, $gamedesc );
+						$gamedesc = preg_replace( "/\"/",'',$gamedesc[0] );
+          				} elseif (preg_match("/^\<manufacturer/",$myline)) {
+          				# Pull out the game manufacturer
+          				preg_match( "/\"(.*?)\"/", $line, $gamemanu );
+						$gamemanu = preg_replace( "/\"/",'',$gamemanu[0] );
+          				} elseif (preg_match("/^\<rom/",$myline)) {
+                        # Pull out the game rom name, size, crc, md5 and sha1
+          				preg_match_all( "/\"(.*?)\"/", $line, $gamerom );
+  						$gameromdet = preg_replace( "/\"/",'',$gamerom[0] );
+						$gameromname = preg_replace( "/\"/",'',$gameromdet[0] );
+  						$gameromsize = preg_replace( "/\"/",'',$gameromdet[1] );
+						$gameromcrc = preg_replace( "/\"/",'',$gameromdet[2] );
+							if (strlen($gameromdet[3]) > $md5len ) {
+								$gamerommd5 = "";
+								$gameromsha1 = preg_replace( "/\"/",'',$gameromdet[3] );
+							} else {
+								$gamerommd5 = preg_replace( "/\"/",'',$gameromdet[3] );
+								$gameromsha1 = preg_replace( "/\"/",'',$gameromdet[4] );
+							}
+          				}
+                        # If we match the end of the block, call the build_itemArray function          				
+						if (preg_match("/^\<\/game/",$myline)) {
+							build_itemArray("0","1",$gamename,"","","",$gamedesc,$gamemanu,$gameromname,$gameromsize,$gameromcrc,$gamerommd5,$gameromsha1,"Current");
+						}
+          			} 
+          			break;
         		# CLRMame Pro DAT Format
           		case cmprodat:
           			$myline = ltrim($line);
-          			if ((preg_match("/^name/",$myline)))
-	          			{ 
-	          				#echo $myline."<br />"; 
-	          			}
           			if (( $i > $skiplines ) && (preg_match("/^name/",$myline))) {	
           				# Pull out the archive names
 						preg_match( "/\"(.*?)\"/", $line, $gamename );
 						$line = preg_replace( "/\"/",'',$gamename[0] );
-	          			build_itemArray($line,"Current");
-					} 
+          				build_itemArray("0","1",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
+					}
           		break;
         		# Rommanger Dat Format
           		case rommanager:
-					if ( $i > $skiplines ) {	
+					if ( $i > $skiplines ) {
+						if (preg_match("/^¬/",$line)) {
 						# Pull out the archive names
 						$line = explode('¬',$line);
-	          			build_itemArray($line[1],$line[6]);
-					} 
+						build_itemArray("0","1",$line[1],$item,$item,"",$item,$item,$item,$line[6],"","","","Current");
+						}
+					}
           		break;
-          		
           		# MAME XML Formal
 				case mamexml:
           			read_mamexml($skiplines);
           		break;
           		# Generic
 				case generic:
-          			build_itemArray($line,"Current");
+          			build_itemArray("1","0",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
           		break;
 				default:
            		echo "Nothing to do here either jim";
@@ -92,21 +163,27 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 	}
 }
 
-function build_itemArray($line,$build) {
+function build_itemArray($type = "0",$condition = "1",$value,$cloneof,$romof,$ext,$description,$manufucturer,$rom,$size,$crc32,$md5,$sha1,$build) {
 	
 		$line = chop($line);
 		$items = array();
 		$items [] = array(
-		'type' => '0',
-		'condition' => '1',
-		'value' => $line,
-		'cloneof' => $line,
-		'romof' => $line,
+		'type' => $type,
+		'condition' => $condition,
+		'value' => $value,
+		'cloneof' => $cloneof,
+		'romof' => $romof,
 		'ext' => $ext,
-		'description' => $line,
+		'description' => $description,
+		'manufacturer' => $manufacturer,
+		'rom' => $rom,
+		'size' => $size,
+		'crc32' => $crc32,
+		'md5' => $md5,
+		'sha1' => $sha1,
 		'build' => $build
 		);
-		# File write contents, open file for append		
+		# File write contents, open file for append
 		writeout_contents($items);
 }
 
@@ -173,34 +250,37 @@ function process_upload($tmpfile) {
         $fixfile = $uploaddir . $uploadfname;
 		$i = 0;
         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ( $lines as $line ) {
+        foreach ( $lines as $line ) {     	
             $i++;
-			if (($i == "1") && (preg_match('/You are Missing|You Have/i',$line))) {
+            # Use first 4 lines to determine filetype
+            if ($i <= "4") {
+	            if ($i == "1") { $HDR1 = $line; }
+	        	if ($i == "2") { $HDR2 = $line; }
+	        	if ($i == "3") { $HDR3 = $line; }
+	        	if ($i == "4") { $HDR4 = $line; }
+            } else {
+            	$HDR0 = $HDR1.$HDR2.$HDR3.$HDR4;
+			if ( preg_match('/You are Missing|You Have/i',$HDR0) ) {
 				# Valid GoodTools File
 				genFunction("goodtxt","2","Recognised GoodTools style Miss/Have Text");
 				exit;
-			}
-        	if (($i == "1") && (preg_match('/clrmamepro \(/i',$line))) {
+			} elseif ( preg_match('/clrmamepro \(/i',$HDR0 )) {
 				# Valid CMPRO DAT File
 				genFunction("cmprodat","2","Recognised CMPro DAT");
 				exit;
-			}
-			if (($i == "2" || $i == "3") && (preg_match('/DOCTYPE mame/',$line)))	{
+			} elseif ( preg_match('/DOCTYPE mame/',$HDR0) )	{
 				# Valid MAME XML
-				genFunction("mamexml","85","Recognised MAME (XML)");
+				genFunction("mamexml","85","Recognised MAME XML");
 				exit;
-			}
-			if (($i == "4" || $i == "5") && (preg_match('/[DAT]/',$line)))	{
+			} elseif ( preg_match('/CREDITS/',$HDR0) ) {
 				# Valid Rommanger
 				genFunction("rommanager","9","Recognised Rommanager Dat");
 				exit;
-			} 
-			if (($i == "7" || $i == "8") && (preg_match('/FIXDAT/',$line)))	{
+			} elseif ( preg_match('/datafile/',$HDR0) )	{
 				# Valid CMPRO XML Fixdat
-				genFunction("cmproxml","16","Recognised CMPro Fixdat (XML)");				
+				genFunction("cmproxml","0","Recognised CMPro/RC3 XML");				
 				exit;
-			} 
-			if ($i >= "9") {
+			} else {
 				# File Not Recognised, treating as generic listing
 				genFunction("generic","0","File Not Recognised, treating as generic listing");				
 				exit;
@@ -208,8 +288,8 @@ function process_upload($tmpfile) {
 		}
 	}
     
+ }
 }
-
 /*
  * create_link()
  * 
@@ -265,7 +345,7 @@ function switchOutput($pstQueue) {
         case CRCmsbat:
           require('outputs/msbat-crc.php');
 		  break; 
-        case msbat-numbered:
+        case msbatnumbered:
           require('outputs/msbat-numbered.php');
 		  break; 
 		case bash:
@@ -298,7 +378,7 @@ function switchOutput($pstQueue) {
         case mGalaxy:
           require('outputs/mgalaxy.php');
           break; 
-		case xbmc-launcher:
+		case xbmclauncher:
           require('outputs/xbmc-launcher.php');
           break; 
         default:

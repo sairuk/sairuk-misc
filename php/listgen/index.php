@@ -9,48 +9,7 @@
  * Enter Description
  */ 
 
-require('functions.php');
-
-
-# Project information
-$projName = "listgen";
-$projVer = "v0.7";
-$projAuth = "sairuk";
-
-
-# Global Variables
-global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID, $maxviewbytes;
-
-$maxviewbytes = "1048576";
-
-# If page is reloaded from form with ext passed
-# populate $ext 
-if (isset($_POST['rompath']))
-{
-	# Set $ext to combo data
-	$ext = ".".$_POST['ext'];
-} else if ($_POST['ext'] == "custom" ) {
-	
-	# Set $ext to form data
-    $ext = ".".$_POST['custext'];
-} else {
-	# Clear $ext
-	$ext = "";
-}
-
-# Initialise Session Information
-session_start();
-$sessionID = session_id();
-
-
-# If page is reloaded from form with rompath passed
-# strip slashes from the path and print path to the 
-# screen
-if (isset($_POST['rompath']))
-{
-	$rompath = stripslashes($_POST['rompath']);
-	print $rompath;
-}
+require_once('functions.php');
 
 ?>
 <html>
@@ -65,8 +24,10 @@ if (isset($_POST['rompath']))
                         Accepts:
                         <ul type="disc"> 
                         <li>Cowering GoodTools formatted miss/have txts</li>
-						<li>CLRMame fixdats (newer XML fixdats)</li>
-						<li>Mame ListXML (requires >128mb memory_limit)</li>
+						<li>CLRMame/RC3 XML</li>
+						<li>CLRMame legacy DAT format</li>
+						<li>RomCenter legcay DAT format</li>
+						<li>Mame ListXML (requires &gt;128mb memory_limit)</li>
 						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>
                  </td>
@@ -101,13 +62,13 @@ if (isset($_POST['rompath']))
 										 <option>&nbsp;</option>
 										 <option>Rename Scripts</option>		
 										 <option value="CRCmsbat">• MSDOS batch CRC</option>
-										 <option value="msbat-numbered">• MSDOS batch NUM</option>
+										 <option value="msbatnumbered">• MSDOS batch NUM</option>
 										 <option>&nbsp;</option>
 										 <option>Emulator Frontends</option>
 										 <option value="mamewah" title="Only supported for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
 										 <option value="mamewah168" title="Only supported for Goodtxts">• MameWah 1.68 Filtered Lists</option>
 										 <option value="mGalaxy" title="Version number must be manually added final output">• mGalaxy Database</option>
-										 <option value="xbmc-launcher">• XBMC Launcher Rom List</option>
+										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
 										 <option>&nbsp;</option>	
 									 </select>
 							</td>
@@ -135,9 +96,9 @@ if (isset($_POST['rompath']))
 		<tr>
 			<td colspan="3">&nbsp;<br />
 				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>
-				&nbsp --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/wiki/wikilginfo">Wiki Page</a>
-				&nbsp --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/">Google Code</a>
-				&nbsp --- &nbsp;<a href="/listgen">Reload Page</a>
+				&nbsp; --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/wiki/wikilginfo">Wiki Page</a>
+				&nbsp; --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/">Google Code</a>
+				&nbsp; --- &nbsp;<a href="/listgen">Reload Page</a>
 				<hr></hr>
 			</td>
 		</tr>
@@ -145,9 +106,9 @@ if (isset($_POST['rompath']))
 	</body>
 </html>
 
-<?php
-
+<?php 
 # Process File Upload
+# kept in index.php to render correctly for the time being
 if (isset($_FILES['fixfile']['name'])) 
 {
     $fixfile = $_FILES['fixfile']['name'];
@@ -158,5 +119,4 @@ if (isset($_FILES['fixfile']['name']))
     $tmpfile = $_FILES['fixfile']['tmp_name'];
     process_upload($tmpfile);
 }
-
 ?>

@@ -22,7 +22,7 @@ function writeout_contents($items)
         foreach ($items AS $item)
         {
         	$value = preg_replace('/\./','',$item['value']);
-            fwrite($xmlhndl , "ren ".chr(34).$item['build'].".*".chr(34)." ".chr(34).$value.".*".chr(34).""."\r\n");
+            fwrite($xmlhndl , "ren ".chr(34).$item['crc32'].".*".chr(34)." ".chr(34).$value.".*".chr(34).""."\r\n");
         }
         
 }
