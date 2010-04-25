@@ -79,7 +79,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
         		# Cowering's Goodtools Have/Miss Text Format
 				case goodtxt:
 					if ( $i > $skiplines ) {
-          			build_itemArray("0","1",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
+          			build_itemArray("0","1",$line,$line,$line,"",$line,$line,$line,"","","","","Current");
 					} 
           		break;
         		# CLRMame Pro XML Format, full parse
@@ -126,7 +126,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           				# Pull out the archive names
 						preg_match( "/\"(.*?)\"/", $line, $gamename );
 						$line = preg_replace( "/\"/",'',$gamename[0] );
-          				build_itemArray("0","1",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
+          				build_itemArray("0","1",$line,$line,$line,"",$line,$line,$line,"","","","","Current");
 					}
           		break;
         		# Rommanger Dat Format
@@ -135,7 +135,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 						if (preg_match("/^¬/",$line)) {
 						# Pull out the archive names
 						$line = explode('¬',$line);
-						build_itemArray("0","1",$line[1],$item,$item,"",$item,$item,$item,$line[6],"","","","Current");
+						build_itemArray("0","1",$line[1],$line[1],$line[1],"",$line[1],$line[1],$line[1],$line[6],"","","","Current");
 						}
 					}
           		break;
@@ -145,7 +145,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           		break;
           		# Generic
 				case generic:
-          			build_itemArray("1","0",$item,$item,$item,"",$item,$item,$item,"","","","","Current");
+          			build_itemArray("1","0",$line,"","","","","","","","","","","Current");
           		break;
 				default:
            		echo "Nothing to do here either jim";
