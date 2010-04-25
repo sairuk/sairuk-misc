@@ -23,10 +23,10 @@ require_once('functions.php');
                  <td><img src="listgen.png" border="0"></img>
                         Accepts:
                         <ul type="disc"> 
-                        <li>Cowering GoodTools formatted miss/have txts</li>
-						<li>CLRMame/RC3 XML</li>
-						<li>CLRMame legacy DAT format</li>
-						<li>RomCenter legcay DAT format</li>
+                        <li>Cowering GoodTools (extendeed)</li>
+						<li>CLRMame/RC3 XML (extendeed)</li>
+						<li>CLRMame legacy DAT format (limited)</li>
+						<li>RomCenter legcay DAT format (extendeed)</li>
 						<li>Mame ListXML (requires &gt;128mb memory_limit)</li>
 						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>

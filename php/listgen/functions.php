@@ -133,9 +133,9 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
           		case rommanager:
 					if ( $i > $skiplines ) {
 						if (preg_match("/^¬/",$line)) {
-						# Pull out the archive names
+						# ¬parent name¬parent description¬game name¬game description¬rom name¬rom crc¬rom size¬romof name¬merge name¬
 						$line = explode('¬',$line);
-						build_itemArray("0","1",$line[1],$line[1],$line[1],"",$line[1],$line[1],$line[1],$line[6],"","","","Current");
+						build_itemArray("0","1",$line[1],$line[0],$line[7],"",$line[4],"",$line[5],$line[7],$line[6],"","","Current");
 						}
 					}
           		break;
