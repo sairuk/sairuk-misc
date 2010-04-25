@@ -16,7 +16,7 @@ function writeout_header()
 	fwrite($xmlhndl , "<html>"."\n");
 	fwrite($xmlhndl , "<head>"."\n");
 	fwrite($xmlhndl , "<title>Search Links for ".$name."</title>"."\n");
-	fwrite($xmlhndl , "<link rel=".chr(34)."stylesheet".chr(34)." type=".chr(34)."text/css".chr(34)." href=".chr(34)."/listgen/style.css".chr(34)." />\n");
+	fwrite($xmlhndl , "<style>body{font-size:12px;} thead{font-weight:bold;} td{font-size:11px;padding:5px;min-width:50px} .title{min-width:250px;}</style>\n");
 	fwrite($xmlhndl , "</head>"."\n");
 	fwrite($xmlhndl , "<body>"."\n");
 	fwrite($xmlhndl , "<h3>Search Links for ".$name."</h3>"."\n");

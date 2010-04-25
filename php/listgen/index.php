@@ -61,13 +61,13 @@ require_once('functions.php');
 										 <option value="bash">• Bash Script</option>
 										 <option>&nbsp;</option>
 										 <option>Rename Scripts</option>		
-										 <option value="CRCmsbat">• MSDOS batch CRC</option>
-										 <option value="msbatnumbered">• MSDOS batch NUM</option>
+										 <option value="CRCmsbat" title="Rename files from CRC.EXT to a useful name">• MSDOS batch CRC</option>
+										 <option value="msbatnumbered" title="Rename files from NUMBER.EXT to a useful name">• MSDOS batch NUM</option>
 										 <option>&nbsp;</option>
 										 <option>Emulator Frontends</option>
-										 <option value="mamewah" title="Only supported for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
-										 <option value="mamewah168" title="Only supported for Goodtxts">• MameWah 1.68 Filtered Lists</option>
-										 <option value="mGalaxy" title="Version number must be manually added final output">• mGalaxy Database</option>
+										 <option value="mamewah" title="Best support for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
+										 <option value="mamewah168" title="Best support for Goodtxts">• MameWah 1.68 Filtered Lists</option>
+										 <option value="mGalaxy" title="Version number must be manually added to final output">• mGalaxy Database</option>
 										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
 										 <option>&nbsp;</option>	
 									 </select>

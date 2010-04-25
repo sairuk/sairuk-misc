@@ -327,62 +327,71 @@ function create_link($zipfile) {
 
 function switchOutput($pstQueue) {
 	
-	global $fixfile, $name;
+	global $fixfile, $name, $modname, $outurl;
 	
     $name = substr($fixfile,0,strlen($fixfile)-4);
 
    	# Outputs
    	switch ($pstQueue) { 
         case filezilla:
-          require('outputs/filezilla.php'); 
-          break;
+          	require('outputs/filezilla.php'); 
+          	break;
         case wget:
-          require('outputs/wget.php');
-          break;
+          	require('outputs/wget.php');
+          	break;
         case msbat:
-          require('outputs/msbat.php');
-		  break; 
+          	require('outputs/msbat.php');
+		  	break; 
         case CRCmsbat:
-          require('outputs/msbat-crc.php');
-		  break; 
+          	require('outputs/msbat-crc.php');
+		  	break; 
         case msbatnumbered:
-          require('outputs/msbat-numbered.php');
-		  break; 
+          	require('outputs/msbat-numbered.php');
+		  	break; 
 		case bash:
-          require('outputs/bash.php');
-          break;
+          	require('outputs/bash.php');
+          	break;
         case google:
-          require('outputs/html_google.php');
-		  break;
+          	$outurl = "http://www.google.com.au/search?q=";
+          	require('outputs/html_generic.php');
+		  	break;
         case ebay:
-          require('outputs/html_ebay.php');
-		  break;  
+        	$modname = 'Ebay Search';
+        	$outurl = "http://shop.ebay.com/?_nkw=";
+          	require('outputs/html_generic.php');
+		  	break;  
         case ebayau:
-          require('outputs/html_ebayau.php');
-		  break; 
+        	$modname = "Ebay Australia Search";
+        	$outurl = "http://shop.ebay.com.au/?_nkw=";
+          	require('outputs/html_generic.php');
+		  	break; 
         case binsearch:
-          require('outputs/html_binsearch.php');
-		  break; 
+        	$modname = "binsearch.info";
+			$outurl = "http://www.binsearch.info/?q=";
+          	require('outputs/html_generic.php');
+		  	break; 
         case easynews:
-          require('outputs/html_easynews.php');
-		  break; 
+        	$modname = "EasyNews Global Search";
+        	$outurl = "http://members.easynews.com/global4/search.html?gps=";
+          	require('outputs/html_generic.php');
+		  	break; 
         case htmlall:
-          require('outputs/html_all.php');
-		  break; 
+          	require('outputs/html_all.php');
+		  	break; 
         case mamewah:
-          require('outputs/mamewah.php');
-		  break; 
+          	require('outputs/mamewah.php');
+		  	break; 
         case mamewah168:
-          require('outputs/mamewah168.php');
-		  break;
+          	require('outputs/mamewah168.php');
+		  	break;
         case mGalaxy:
-          require('outputs/mgalaxy.php');
-          break; 
+          	require('outputs/mgalaxy.php');
+          	break; 
 		case xbmclauncher:
-          require('outputs/xbmc-launcher.php');
-          break; 
+          	require('outputs/xbmc-launcher.php');
+          	break; 
         default:
-          echo "Nothing to do here either jim";
+         	echo "Nothing to do here either jim";
     	}
 
 }
