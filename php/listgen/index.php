@@ -8,14 +8,14 @@
  *  
  * Enter Description
  */ 
-
-require_once('functions.php');
+require_once('includes/conf.php');
+require_once('includes/functions.php');
 
 ?>
 <html>
     <head>
     <title><?php print $projName .' '. $projVer . ' (SVN Version: '.getSCID().')'?></title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="includes/style.css" />
     </head>
     <body>
         <table border="0" width="50%">

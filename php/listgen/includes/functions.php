@@ -346,65 +346,71 @@ function switchOutput($pstQueue) {
 	
     $name = substr($fixfile,0,strlen($fixfile)-4);
 
+    # For Debugging
+    #$pstQueue = "test";
+    
    	# Outputs
    	switch ($pstQueue) { 
         case filezilla:
-          	require('outputs/filezilla.php'); 
+          	require(DOCROOT.'/outputs/filezilla.php'); 
           	break;
         case wget:
-          	require('outputs/wget.php');
+          	require(DOCROOT.'/outputs/wget.php');
           	break;
         case msbat:
-          	require('outputs/msbat.php');
+          	require(DOCROOT.'/outputs/msbat.php');
 		  	break; 
         case CRCmsbat:
-          	require('outputs/msbat-crc.php');
+          	require(DOCROOT.'/outputs/msbat-crc.php');
 		  	break; 
         case msbatnumbered:
-          	require('outputs/msbat-numbered.php');
+          	require(DOCROOT.'/outputs/msbat-numbered.php');
 		  	break; 
 		case bash:
-          	require('outputs/bash.php');
+          	require(DOCROOT.'/outputs/bash.php');
           	break;
         case google:
         	$modname = 'Google Search';
           	$outurl = "http://www.google.com.au/search?q=";
-          	require('outputs/html_generic.php');
+          	require(DOCROOT.'/outputs/html_generic.php');
 		  	break;
         case ebay:
         	$modname = 'Ebay Search';
         	$outurl = "http://shop.ebay.com/?_nkw=";
-          	require('outputs/html_generic.php');
+          	require(DOCROOT.'/outputs/html_generic.php');
 		  	break;  
         case ebayau:
         	$modname = "Ebay Australia Search";
         	$outurl = "http://shop.ebay.com.au/?_nkw=";
-          	require('outputs/html_generic.php');
+          	require(DOCROOT.'/outputs/html_generic.php');
 		  	break; 
         case binsearch:
         	$modname = "binsearch.info";
 			$outurl = "http://www.binsearch.info/?q=";
-          	require('outputs/html_generic.php');
+          	require(DOCROOT.'/outputs/html_generic.php');
 		  	break; 
         case easynews:
         	$modname = "EasyNews Global Search";
         	$outurl = "http://members.easynews.com/global4/search.html?gps=";
-          	require('outputs/html_generic.php');
+          	require(DOCROOT.'outputs/html_generic.php');
 		  	break; 
         case htmlall:
-          	require('outputs/html_all.php');
+          	require(DOCROOT.'/outputs/html_all.php');
 		  	break; 
         case mamewah:
-          	require('outputs/mamewah.php');
+          	require(DOCROOT.'/outputs/mamewah.php');
 		  	break; 
         case mamewah168:
-          	require('outputs/mamewah168.php');
+          	require(DOCROOT.'/outputs/mamewah168.php');
 		  	break;
         case mGalaxy:
-          	require('outputs/mgalaxy.php');
+          	require(DOCROOT.'/outputs/mgalaxy.php');
           	break; 
 		case xbmclauncher:
-          	require('outputs/xbmc-launcher.php');
+          	require(DOCROOT.'/outputs/xbmc-launcher.php');
+          	break; 
+		case test:
+          	require(DOCROOT.'/outputs/test_mamewah168.php');
           	break; 
         default:
          	echo "Nothing to do here either jim";
