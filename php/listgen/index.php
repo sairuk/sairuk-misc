@@ -27,7 +27,7 @@ require_once('includes/functions.php');
 						<li>CLRMame/RC3 XML (extendeed)</li>
 						<li>CLRMame legacy DAT format (limited)</li>
 						<li>RomCenter legcay DAT format (extendeed)</li>
-						<li>Mame ListXML <?php  if ( ini_get('memory_limit') < 128 ) { echo "<b><i> - (Not Support on this Server)</i></b>"; } ?></li>
+						<li>Mame ListXML <?php  if ( ini_get('memory_limit') < 256 ) { echo "<b><i> - (Not Supported on this Server)</i></b>"; } ?></li>
 						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>
 						<i>Success for larger processing runs is dependant on server settings.</i>
