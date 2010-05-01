@@ -4,16 +4,15 @@
 #
 # Builds a filezilla filters.xml
 
-global $modname, $outfile;
+global $modname, $outfile, $title;
 
 $modname = 'FileZilla Filter';
 $outfile = "filters.xml";
+$title = $name;
 
 function writeout_header()
 {
-
-	global $name;
-	global $xmlhndl;
+	global $name, $xmlhndl, $title;
 
   # Default Filter Settings
   $applytofiles = "1";           //Apply Filters to Files 
@@ -25,7 +24,7 @@ function writeout_header()
     fwrite($xmlhndl ,'<FileZilla3>'."\n");
     fwrite($xmlhndl ,'    <Filters>'."\n");
     fwrite($xmlhndl ,'        <Filter>'."\n");
-    fwrite($xmlhndl ,'          <Name>'.$name.'</Name>'."\n");
+    fwrite($xmlhndl ,'          <Name>'.$title.'</Name>'."\n");
     fwrite($xmlhndl ,'          <ApplyToFiles>'.$applytofiles.'</ApplyToFiles>'."\n");
     fwrite($xmlhndl ,'          <ApplyToDirs>'.$applytodirs.'</ApplyToDirs>'."\n");
     fwrite($xmlhndl ,'          <MatchType>'.$matchtype.'</MatchType>'."\n");
