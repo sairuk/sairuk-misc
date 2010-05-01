@@ -48,32 +48,32 @@ include('includes/counter.php');
 							<td align="left" valign="top">
 							Output Format:</td><td>
 									 <select name="queue" title="Select output format">
-										 <option>HTML Listings</option>
+										 <optgroup label="HTML Listings">
 										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">• Web Search (Multiple)</option>
 										 <option value="binsearch">• binsearch.info</option>
 										 <option value="easynews">• EasyNews Search</option>
 										 <option value="ebayau">• eBay Australia Search</option>
 										 <option value="ebay">• eBay Search</option>
 										 <option value="google">• Google Search</option>
-										 <option>&nbsp;</option>	
-										 <option>File Transfer Queues</option>
+										 </optgroup>
+										 <optgroup label="File Transfer Queues">
 										 <option value="filezilla">• FileZilla Filter</option>
 										 <option value="wget">• wget queue</option>
-										 <option>&nbsp;</option>		
-										 <option>Copy Scripts</option>									 
+										 </optgroup>
+										 <optgroup label="Copy Scripts">									 
 										 <option value="msbat">• MSDOS batch</option>
 										 <option value="bash">• Bash Script</option>
-										 <option>&nbsp;</option>
-										 <option>Rename Scripts</option>		
+										 </optgroup>
+										 <optgroup label="Rename Scripts">	
 										 <option value="CRCmsbat" title="Rename files from CRC.EXT to a useful name">• MSDOS batch CRC</option>
 										 <option value="msbatnumbered" title="Rename files from NUMBER.EXT to a useful name">• MSDOS batch NUM</option>
-										 <option>&nbsp;</option>
-										 <option>Emulator Frontends</option>
+										 </optgroup>
+										 <optgroup label="Emulator Frontends">
 										 <option value="mamewah" title="Best support for Goodtxts">• MameWah &lt;1.67 Filtered Lists</option>
 										 <option value="mamewah168" title="Best support for Goodtxts">• MameWah 1.68 Filtered Lists</option>
 										 <option value="mGalaxy" title="Version number must be manually added to final output">• mGalaxy Database</option>
 										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
-										 <option>&nbsp;</option>	
+										 </optgroup>
 									 </select>
 									 <input type="submit" name="datrun" value="Process"/>
 									 
