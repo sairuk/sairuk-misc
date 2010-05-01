@@ -452,7 +452,7 @@ function zipfiles($outfile,$name) {
 	create_link($outfile);		
 }
 
-function mwzipfiles($outfile,$names) {
+function mwzipfiles($outfile,$names,$ver) {
 	global $csIDstr;
 	// Set outfile to correct name, then delete existing file
 	$outfile =  $outfile . ".zip";
@@ -470,7 +470,15 @@ function mwzipfiles($outfile,$names) {
 	#echo "FILE:$file<br />ZIPDIR:$strdir<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
 		
 	if ( preg_match('/ini$/',$name)) {	
-		$zip->addFile($name, "config/".$strdir."/".$csIDstr);
+		if ( $ver == 168 ) {
+			$zipdirs = "config/$strdir/$csIDstr";
+		} else if ($ver == 167) {
+			$zipdirs = "ini/$csIDstr";
+		} else {
+			$zipdirs = "$csIDstr";
+		}
+		
+		$zip->addFile($name, $zipdirs);
 		} else if ( preg_match('/lst$/',$name)) {
 		$zip->addFile($name, "files/".$csIDstr);
 		} else {

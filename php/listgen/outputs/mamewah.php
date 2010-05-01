@@ -85,7 +85,7 @@ function writeout_footer() {
 	global $outfile;
 	global $ziplst;
 	
-	mwzipfiles($outfile,$ziplst);
+	mwzipfiles($outfile,$ziplst,"167");
 	
 	create_link($outfile.".zip");
 	unlink($outfile);
