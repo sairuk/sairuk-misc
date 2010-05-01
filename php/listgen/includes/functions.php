@@ -389,7 +389,7 @@ function switchOutput($pstQueue) {
         case easynews:
         	$modname = "EasyNews Global Search";
         	$outurl = "http://members.easynews.com/global4/search.html?gps=";
-          	require(DOCROOT.'outputs/html_generic.php');
+          	require(DOCROOT.'/outputs/html_generic.php');
 		  	break; 
         case htmlall:
           	require(DOCROOT.'/outputs/html_all.php');

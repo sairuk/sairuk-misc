@@ -1,33 +1,12 @@
 @CHARSET "UTF-8";
 
-body 
+body, td, th, h3, input, select
 {
 	font-size:12px;
 	background: #FFFFFF;
 	color: #000000;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-td 
-{
-	font-size:12px;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	padding-right: 24px;
-	padding-bottom: 3px;
-
-}
-select
-{
-	color: white;
-	background: #5C5858;
-}
-input
-{
-	font-weight: bold;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-
-}
-h3
-{
-	font-size:24px;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;	
-}
+select, input { background: #FFF3E5;height:22px; }
+td { padding-right: 24px;padding-bottom: 3px; }
+h3 { font-size:24px; }

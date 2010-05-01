@@ -19,10 +19,13 @@ include('includes/counter.php');
 	<link rel="stylesheet" type="text/css" href="includes/style.css" />
     </head>
     <body>
-        <table border="0" width="50%">
+        <table border="0">
             <tr>
-                 <td><img src="listgen.png" border="0"></img>
-                        Accepts:
+                 <td colspan="2"><img src="listgen.png" border="0"></img></td>
+            </tr>
+            <tr>
+            <td width="400px">
+                        Accepts: <i>(NOTE: Success for large lists depends on server config.)</i>
                         <ul type="disc"> 
                         <li>Cowering GoodTools (extendeed)</li>
                         <li>No-Intro (extendeed)</li>
@@ -32,20 +35,18 @@ include('includes/counter.php');
 						<li>Mame ListXML <?php  if ( ini_get('memory_limit') < 256 ) { echo "<b><i> - (Not Supported on this Server)</i></b>"; } ?></li>
 						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>
-						<i>Success for larger processing runs is dependant on server settings.</i>
-                 </td>
-             </tr>
-            <tr>
-                <td>
+            </td>
+            <td>
+			<form enctype="multipart/form-data" action="index.php" method="post">
+				<fieldset>
+				<legend>Process A List</legend>
 					<table border="0">
 						<tr>
-							<td colspan="2">
-								<form enctype="multipart/form-data" action="index.php" method="post">
-								Select Input File<br />
-								<input type="file" name="fixfile" size="50%" title="Select input file"/><br />
-							</td>
+							<td>Input File:</td><td><input type="file" name="fixfile" size="58" title="Select input file"/></td>
+						</tr>
+						<tr>
 							<td align="left" valign="top">
-							Select Output Format<br />
+							Output Format:</td><td>
 									 <select name="queue" title="Select output format">
 										 <option>HTML Listings</option>
 										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">• Web Search (Multiple)</option>
@@ -74,12 +75,17 @@ include('includes/counter.php');
 										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
 										 <option>&nbsp;</option>	
 									 </select>
+									 <input type="submit" name="datrun" value="Process"/>
+									 
 							</td>
 						</tr>
 						<tr>
-							<td align="left" valign="top">Rom Path: <input type="text" name="rompath" title="Only Supported by XBMC-Launcher only." /></td>
+							<td align="left" valign="top">Rom Path: <i>(Optional)</i></td><td><input type="text" size="50" name="rompath" title="Supported in XBMC-Launcher only." /></td>
+						</tr>
+						<tr>
 							<td align="left" valign="top">
-									Extension:
+
+									Extension: <i>(Optional)</i>:</td><td>
 									 <select name="ext" title="Select used extenstion">
 										 <option value="7z">7z</option>
 										 <option value="rar">rar</option>
@@ -87,25 +93,25 @@ include('includes/counter.php');
 										 <option value="custom">custom</option>
 									 </select><input type="text" name="custext" size="4" title="Enter Custom Extension"/>
 							</td>
-
-							<td align="right" valign="top">
-									<input type="submit" name="datrun" value="Process"/>
-								</form>
-							</td>
-						</tr>
+							</tr>
 					</table>
-                </td>
-				</tr>
-		<tr>
-			<td colspan="3">&nbsp;<br />
+ 				</fieldset>
+			</form>
+         	</td>
+         	
+			</tr>
+		
+			<tr>
+			<td colspan="3">
+				&nbsp;<br />
 				<?php echo " $projName, Version: $projVer (SVN Version: ".getSCID().") written by: $projAuth " ?>
 				&nbsp; --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/wiki/wikilginfo">Wiki Page</a>
 				&nbsp; --- &nbsp;<a href="http://code.google.com/p/sairuk-misc/">Google Code</a>
 				&nbsp; --- &nbsp;<a href="/listgen">Reload Page</a>
-				<hr></hr>
 			</td>
-		</tr>
+			</tr>
 		</table>
+		<p />
 	</body>
 </html>
 
