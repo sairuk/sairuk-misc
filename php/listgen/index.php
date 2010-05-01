@@ -10,6 +10,7 @@
  */ 
 require_once('includes/conf.php');
 require_once('includes/functions.php');
+include('includes/counter.php');
 
 ?>
 <html>
@@ -24,6 +25,7 @@ require_once('includes/functions.php');
                         Accepts:
                         <ul type="disc"> 
                         <li>Cowering GoodTools (extendeed)</li>
+                        <li>No-Intro (extendeed)</li>
 						<li>CLRMame/RC3 XML (extendeed)</li>
 						<li>CLRMame legacy DAT format (limited)</li>
 						<li>RomCenter legcay DAT format (extendeed)</li>

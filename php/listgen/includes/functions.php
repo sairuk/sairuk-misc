@@ -1,15 +1,7 @@
 <?php
 
-
-# Project information
-$projName = "listgen";
-$projVer = "v0.7";
-$projAuth = "sairuk";
-
 # Global Variables
 global $modname, $fixfile, $ext, $name, $outfile, $xmlhndl, $rompath, $sessionID, $maxviewbytes;
-
-$maxviewbytes = "1048576";
 
 # If page is reloaded from form with ext passed
 # populate $ext 
@@ -62,7 +54,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 	
     if (file_exists($fixfile) && is_readable ($fixfile)) {
 
-    	$outfile = $sessionID .'/'. $outfile;
+    	$outfile = UPLOADPATH .'/'. $sessionID .'/'. $outfile;
     	
     	print $fTypeTitle."<br />";
     	
@@ -244,7 +236,7 @@ function process_upload($tmpfile) {
 	
 	global $fixfile, $sessionID;
 	
-    $uploaddir = dirname("index.php") . '/' . $sessionID . '/';
+    $uploaddir = UPLOADPATH .'/'. $sessionID .'/' ;
 
     if (!is_dir($uploaddir)) {
     	mkdir($uploaddir);
@@ -319,8 +311,7 @@ function process_upload($tmpfile) {
  */
 function create_link($zipfile) {
 
-	global $csIDstr;
-	global $maxviewbytes;
+	global $csIDstr, $maxviewbytes, $sessionID;
 	
 	if (file_exists($zipfile)) {
 		$fsize = filesize($zipfile) . ' bytes';
@@ -338,11 +329,9 @@ function create_link($zipfile) {
 		cleanSessionID($zipfile);
 		$hreftitle = basename($csIDstr);
 		echo (' 
-				<tr>
-				<td>
-					Results: <a href="'.session_id().'/'.basename($zipfile).'" target="_blank">'.$hreftitle.'</a> - '.$fsize.'<br /> 
-				</td>
-				 </tr>
+				<tr><td>
+					Results: <a href="'.UPLOADPATH .'/'. $sessionID .'/'.basename($zipfile).'" target="_blank">'.$hreftitle.'</a> - '.$fsize.'<br /> 
+				</td></tr>
 			 ');
         }
 }
@@ -427,7 +416,7 @@ function switchOutput($pstQueue) {
 
 function cleanSessionID($string) {
 	global $sessionID, $csIDstr;
-	$csIDstr = str_replace($sessionID . '/','',$string);
+	$csIDstr = str_replace('./_userdata/' . $sessionID . '/','',$string);
 }
 
 
@@ -439,88 +428,65 @@ function getSCID() {
 }
 
 function zipfiles($outfile,$name) {
-	
-
 	global $csIDstr, $sessionID;
 	cleanSessionID($name);
+
+	// Set outfile to correct name, then delete existing file
+	$outfile =  UPLOADPATH .'/'. $sessionID .'/'. $outfile . ".zip";
+	if (file_exists($outfile)) { unlink($outfile); }
+	// Create temporary zip file
+	$file = tempnam("tmp", session_id());
+	$zip = new ZipArchive();
 	
-// Set outfile to correct name, then delete existing file
-$outfile =  getcwd() .'/'. $sessionID .'/'. $outfile . ".zip";
-$name = getcwd() .'/'. $name;
-
-if (file_exists($outfile)) {
-	unlink($outfile);
-}
-
-// Create temporary zip file
-$file = tempnam("tmp", session_id());
-$zip = new ZipArchive();
-
-# echo "FILE:$file<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
-
-// Zip will open and overwrite the file, rather than try to read it.
-$zip->open($file, ZIPARCHIVE::OVERWRITE);
-$zip->addFile($name, $csIDstr);
-
-// Close zip
-$zip->close();
-
-// Copy the file to the correct directory
-copy($file, $outfile);
-
-	if (file_exists($name)) {
-	unlink($name);		
-	}
-
-create_link($outfile);
-		
+	#echo "FILE:$file<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
+	
+	// Zip will open and overwrite the file, rather than try to read it.
+	$zip->open($file, ZIPARCHIVE::OVERWRITE);
+	$zip->addFile($name, $csIDstr);
+	// Close zip
+	$zip->close();
+	// Copy the file to the correct directory
+	copy($file, $outfile);
+	if (file_exists($name)) { unlink($name); }
+	create_link($outfile);		
 }
 
 function mwzipfiles($outfile,$names) {
-
-global $csIDstr;
-
-// Set outfile to correct name, then delete existing file
-$outfile =  getcwd() .'/'. $outfile . ".zip";
-if (file_exists($outfile)) {
-	unlink($outfile);
-}
-
-// Create temporary zip file
-$file = tempnam("tmp", session_id());
-$zip = new ZipArchive();
-
-// Zip will open and overwrite the file, rather than try to read it.
-$zip->open($file, ZIPARCHIVE::OVERWRITE);
-
-// Put files in zip
-foreach ($names AS $name) {
-	cleanSessionID($name);
-	$name = getcwd() .'/'. $name;
-
-	$strdir = substr($csIDstr,0,strpos($csIDstr,"-"));
-	
-if ( preg_match('/ini$/',$name)) {	
-	$zip->addFile($name, "config/".$strdir."/".$csIDstr);
-	} else if ( preg_match('/lst$/',$name)) {
-	$zip->addFile($name, "files/".$csIDstr);
-	} else {
-	$zip->addFile($name, $csIDstr);
-	}	
-}
-
-// Close zip
-$zip->close();
-
-// Copy the file to the correct directory
-copy($file, $outfile);
-
-// Clean up old files, doesnt work in the foreach loop above
-foreach ($names AS $name) {
-	if (file_exists($name)) {
-	unlink($name);		
+	global $csIDstr;
+	// Set outfile to correct name, then delete existing file
+	$outfile =  $outfile . ".zip";
+	if (file_exists($outfile)) { unlink($outfile); }
+	// Create temporary zip file
+	$file = tempnam("tmp", session_id());
+	$zip = new ZipArchive();
+	// Zip will open and overwrite the file, rather than try to read it.
+	$zip->open($file, ZIPARCHIVE::OVERWRITE);
+	// Put files in zip
+	foreach ($names AS $name) {
+		cleanSessionID($name);
+		#$name = UPLOADPATH .'/'. $sessionID .'/'. $name;
+		$strdir = substr($csIDstr,0,strrpos($csIDstr,"-"));
+	#echo "FILE:$file<br />ZIPDIR:$strdir<br />OUTFILE:$outfile<br />NAME:$name<br />CLEAN:$csIDstr<p />";
+		
+	if ( preg_match('/ini$/',$name)) {	
+		$zip->addFile($name, "config/".$strdir."/".$csIDstr);
+		} else if ( preg_match('/lst$/',$name)) {
+		$zip->addFile($name, "files/".$csIDstr);
+		} else {
+		$zip->addFile($name, $csIDstr);
+		}	
 	}
-}
+	// Close zip
+	$zip->close();
+	// Copy the file to the correct directory
+	copy($file, $outfile);
+	
+	// Clean up old files, doesnt work in the foreach loop above
+	foreach ($names AS $name) {
+		if (file_exists($name)) {
+		unlink($name);		
+		}
+	}
 
 }
 ?>
