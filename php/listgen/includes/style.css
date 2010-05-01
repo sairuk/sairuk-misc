@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
 
-body, td, th, h3, input, select
+body,td,th,h3,input,select
 {
 	font-size:12px;
 	background: #FFFFFF;
 	color: #000000;
 	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-select, input { background: #FFF3E5;height:22px; }
+select,input { background: #FFF3E5;height:22px; }
 td { padding-right: 24px;padding-bottom: 3px; }
 h3 { font-size:24px; }
