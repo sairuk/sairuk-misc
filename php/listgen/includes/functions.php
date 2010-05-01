@@ -65,6 +65,7 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
 
         $lines = file($fixfile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ( $lines as $line ) {
+        $line = trim($line,"\r\n");
         $i++;
 		$xmlhndl = @fopen($outfile,"a");			
         	# Custom Items Start Here
