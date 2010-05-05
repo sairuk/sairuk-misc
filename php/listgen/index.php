@@ -27,11 +27,11 @@ include('includes/counter.php');
             <td width="400px">
                         Accepts: <i>(NOTE: Success for large lists depends on server config.)</i>
                         <ul type="disc"> 
-                        <li>Cowering GoodTools (extendeed)</li>
-                        <li>No-Intro (extendeed)</li>
-						<li>CLRMame/RC3 XML (extendeed)</li>
+                        <li>Cowering GoodTools (extended)</li>
+                        <li>No-Intro (extended)</li>
+						<li>CLRMame/RC3 XML (extended)</li>
 						<li>CLRMame legacy DAT format (limited)</li>
-						<li>RomCenter legcay DAT format (extendeed)</li>
+						<li>RomCenter legcay DAT format (extended)</li>
 						<li>Mame ListXML <?php  if ( ini_get('memory_limit') < 256 ) { echo "<b><i> - (Not Supported on this Server)</i></b>"; } ?></li>
 						<li>Unknown files are treated as generic (useful for basic lists)</li>
 						</ul>
