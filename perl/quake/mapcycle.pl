@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #
 #
-# Random QUAKEWORLD MapCycle.txt Generator
+# Random QUAKEWORLD MapCycle.cfg Generator
 #
 # Reads BSP files from id1/maps
 # Usage: mapcycle.pl modname numrounds
