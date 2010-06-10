@@ -64,6 +64,9 @@ include('includes/counter.php');
 										 <option value="msbat">• MSDOS batch</option>
 										 <option value="bash">• Bash Script</option>
 										 </optgroup>
+										 <optgroup label="Categories">									 
+										 <option value="catver">• CatVer Format</option>
+										 </optgroup>
 										 <optgroup label="Rename Scripts">	
 										 <option value="CRCmsbat" title="Rename files from CRC.EXT to a useful name">• MSDOS batch CRC</option>
 										 <option value="msbatnumbered" title="Rename files from NUMBER.EXT to a useful name">• MSDOS batch NUM</option>
@@ -73,6 +76,9 @@ include('includes/counter.php');
 										 <option value="mamewah168" title="Best support for Goodtxts">• MameWah 1.68 Filtered Lists</option>
 										 <option value="mGalaxy" title="Version number must be manually added to final output">• mGalaxy Database</option>
 										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
+										 </optgroup>
+										 <optgroup label="Miscellaneous">									 
+										 <option value="fakefile">• Create Fake Files</option>
 										 </optgroup>
 									 </select>
 									 <input type="submit" name="datrun" value="Process"/>

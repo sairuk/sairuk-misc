@@ -75,6 +75,10 @@ function switchOutput($pstQueue) {
           	require(DOCROOT.'/outputs/mgalaxy.php');break; 
 		case xbmclauncher:
           	require(DOCROOT.'/outputs/xbmc-launcher.php');break;
+		case catver:
+          	require(DOCROOT.'/outputs/catver.php');break;
+		case fakefile:
+          	require(DOCROOT.'/outputs/fakefiles.php');break;
 		case test:
           	require(DOCROOT.'/outputs/test_mamewah168.php');break;
         default:
@@ -263,7 +267,9 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
         writeout_footer();
     } 
 
-     if (file_exists($fixfile)) { unlink($fixfile);	}
+    if (is_file($fixfile)) { 
+			unlink($fixfile); 
+    }
 }
 
 function build_itemArray($type = "0",$condition = "1",$value,$cloneof,$romof,$ext,$description,$manufucturer,$rom,$size,$crc32,$md5,$sha1,$build) {
