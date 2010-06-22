@@ -77,9 +77,9 @@ include('includes/counter.php');
 										 <option value="mGalaxy" title="Version number must be manually added to final output">• mGalaxy Database</option>
 										 <option value="xbmclauncher">• XBMC Launcher Rom List</option>
 										 </optgroup>
-										 <optgroup label="Miscellaneous">									 
+										 <!-- <optgroup label="Miscellaneous">									 
 										 <option value="fakefile">• Create Fake Files</option>
-										 </optgroup>
+										 </optgroup> -->
 									 </select>
 									 <input type="submit" name="datrun" value="Process"/>
 									 
