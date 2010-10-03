@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PROJECT="$1"
+SVNROOT="/var/svn/"
+REPO="${SVNROOT}${PROJECT}"
+
+if [ `whoami` != "root" ]; then
+  echo "must be run as root"
+  exit 1
+fi
+
+if [ ! -e ${REPO} ]; then
+ mkdir ${REPO}
+ svnadmin create ${REPO}
+ cd ${SVNROOT}
+ chown -R www-data:subversion ${PROJECT}
+ chmod -R g+rws ${PROJECT}
+ exit
+else
+ echo "${REPO} exists, exiting"
+ exit 2
+fi
+

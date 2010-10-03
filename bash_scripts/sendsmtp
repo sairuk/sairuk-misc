@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+
+use MIME::Lite;
+use Net::SMTP;
+
+### Adjust sender, recipient and your SMTP mailhost
+my $from_address = 'sairuk@gmail.com';
+my $to_address = $ARGV[0];
+my $mail_host = $ARGV[1];
+
+### Adjust subject and body message
+my $subject = $ARGV[2];
+my $message_body = $ARGV[3];
+
+### Create the multipart container
+$msg = MIME::Lite->new (
+  From => $from_address,
+  To => $to_address,
+  Subject => $subject,
+  Type =>'multipart/mixed'
+) or die "Error creating multipart container: $!\n";
+
+### Add the text message part
+$msg->attach (
+  Type => 'TEXT',
+  Data => $message_body
+) or die "Error adding the text message part: $!\n";
+
+### Send the Message
+$msg->send('smtp', $mail_host, Timeout=>60);

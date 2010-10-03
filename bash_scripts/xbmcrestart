@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DISPLAY=`ps aux | grep "/usr/bin/X" | awk '{print $12}'`
+PID=`ps aux | grep "xbmc\.bin" | awk '{print $2}'`
+USER=`ps aux | grep "xbmc\.bin" | awk '{print $1}'`
+CUSR=`whoami`
+
+if [[ ${CUSR} -ne ${USER} ]]; then
+ echo "Script not run as ${USER}"
+ exit 1
+fi
+
+if [ ${PID} ]; then
+ echo "XBMC found @ pid: ${PID} for user: ${USER}<p />"
+ kill -9 ${PID}
+ echo "Restarting XBMC on display ${DISPLAY}<br />"
+ /usr/bin/xbmc &
+ exit 0
+fi

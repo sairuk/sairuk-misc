@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use File::Copy;
+
+$tfdir = "/usr/torrentflux/";
+$tfprocessed = $tfdir . ".processed/";
+$tfincoming = $tfdir . "incoming/";
+$tftrans= $tfdir . ".transfers/";
+opendir(TFT, $tftrans) || die("Cannot open directory"); 
+@dir= readdir(TFT);
+
+foreach $f (@dir) 
+{
+	if ( $f =~ m/stat$/ ) 
+	{
+		$name = $f;
+		$name =~ s/(?<=.)[a-z.]{9}$//i;
+		open (FILE, $tftrans.$f) or die $!;
+		@lines = <FILE>;
+		foreach $l (@lines) {
+			if ( $l =~ m/^Download Succeeded!/ )
+			{
+				# run bash scripts for extracting
+				print $name . " download successful, checking pars\n";
+				$par2 = `p2rep $tfincoming$name`;
+				print $par2;
+				$unrar = `rvidext $tfincoming$name`;
+				print $unrar;
+				
+				# move completed files
+				move $tftrans.$f, $tfprocessed;
+				move $tftrans.$name.".nzb", $tfprocessed;
+				move $tftrans.$name.".nzb.log", $tfprocessed; 
+				 
+				break;
+			}
+		}		
+	}
+
+}
+
+ 
+closedir(TFT); 

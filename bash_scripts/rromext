@@ -1,0 +1,3 @@
+DEST="/usr/downloads/roms/"
+par2repair "$1"
+unrar x "$1" "${DEST}"

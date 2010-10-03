@@ -1,7 +1,7 @@
 CDROM="/dev/dvd1"
 
 if [ -e "$1" ] && [ -e ${CDROM} ]; then
- growisofs -Z ${CDROM}="$1" -speed=16
+ growisofs -dvd-compat -J -R -l -f -Z ${CDROM} -speed=6 "$1"
  ejectsound
  exit 0
 fi

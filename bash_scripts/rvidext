@@ -6,7 +6,7 @@ RARFILE=`find ${1} -iname "*.rar" -print -quit`
 
 DEST="/usr/media-library/videos/Movies (LQ)/"
 
-if [ ${RARFILE} ]; then
+if [ "${RARFILE}" ]; then
  echo "Found ${RARFILE}"
  unrar x -y "${RARFILE}" "${DEST}"
 fi

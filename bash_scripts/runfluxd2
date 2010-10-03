@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Run FLUXD2 
+#
+
+/usr/bin/python /usr/share/torrentflux-b4rt/bin/fluxd2/fluxd.py start \
+--file.cfg=/usr/share/torrentflux-b4rt/bin/fluxd2/fluxd.cfg \
+--dir.docroot=/usr/share/torrentflux-b4rt/ \
+--dir.pathTf=/usr/torrentflux/ \
+--dir.pathFluxd=/usr/torrentflux/.fluxd \
+--file.php=/usr/bin/php \
+--database.DataAdapter=DataAdapterFluxcli
+

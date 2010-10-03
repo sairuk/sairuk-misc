@@ -3,15 +3,20 @@
 # Takes Current Directory as Input if not arguement on cli
 INPUT=$1
 
-PARFILE=`find ${INPUT} -iname "*.par2" -print -quit`
+# Delete sample files; risky workaround
+rm ${INPUT}/*sample*
 
-if [ ${PARFILE} ]; then
+PARFILE=`find ${INPUT} -iname "*.par2" -print -quit`
+PAR2ERROR="PAR2 check failed on ${PARFILE}"
+
+if [ "${PARFILE}" ]; then
  echo "Found ${PARFILE}"
  PAR2MISS=`par2repair "${PARFILE}" | grep -o "Repair is not possible."`
  echo $PAR2MISS
  if [ "${PAR2MISS}" ]; then
   echo "PAR2 Repair incomplete, running with output"
   par2repair "${PARFILE}"
+  /usr/local/bin/sendsmtp sairuk@gmail.com mail.internode.on.net "[HOME] - ${PAR2ERROR}" "${PAR2ERROR}"
   exit 1
  fi
  exit 0

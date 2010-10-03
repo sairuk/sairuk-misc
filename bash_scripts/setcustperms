@@ -1,0 +1,34 @@
+# downloads
+DIR="/usr/downloads/"
+chown -R root:nogroup ${DIR}
+chmod -R 775 ${DIR}
+
+
+# torrentflux downloads
+DIR="/usr/torrentflux/"
+chown -R www-data:www-data ${DIR}
+chmod -R 755 ${DIR}
+
+# torrentflux downloads
+DIR="/usr/torrentflux/incoming/"
+chown -R www-data:nogroup ${DIR}
+chmod -R 775 ${DIR}
+
+# torrentflux uploads
+DIR="/usr/torrentflux/uploads/"
+chown -R www-data:nogroup ${DIR}
+chmod -R 775 ${DIR}
+
+
+# pub
+DIR="/usr/media-library/"
+chown -R root:nogroup ${DIR}
+chmod -R 775 ${DIR}
+
+# prv
+DIR="/usr/prv/"
+chown -R root:nogroup ${DIR}
+chmod -R 775 ${DIR}
+
+#rsyncscript
+chmod 740 /usr/prv/rsync_rmedia.sh
