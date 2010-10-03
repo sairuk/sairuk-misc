@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+body,th,td,input{font-family: Arial, sans-serif;font-size:10px;padding:2px;background:#C6C6FF}
+table{border-collapse:collapse;}
+td{vertical-align:top;}
+th{text-align:left;font-size:12px;}
+a { color:#B9264F;text-decoration:underline; }
+a:hover { color:#85b1de;text-decoration:none; }
+.title{text-align:left;font-size:14px;}
+
+input[type="input"]
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 10px;
+    margin-bottom: 2px;
+    display: block;
+    padding: 2px;
+    border: solid 1px #85b1de;
+    width: 150px;
+    background-color: #FFFFFF;
+}
+
+input[type="submit"]
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 10px;
+    margin-bottom: 2px;
+    display: block;
+    padding: 2px;
+    border: solid 1px #85b1de;
+    width: 80px;
+    background-color: #EDF2F7;
+} 
