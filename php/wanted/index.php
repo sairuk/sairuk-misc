@@ -2,6 +2,9 @@
 ########################################################################
 
 # Changelog:
+#  20101003 - sairuk
+#	Added booko search
+#	Added nzbs.org search
 #  20090410 - sairuk
 #	Moved comments to tootips for titles
 #	Added asterix to end of title if comment exists
@@ -360,28 +363,31 @@ function srch_items($stitle,$stype)
 	$googsrch = '<a href="http://www.google.com.au/search?q=%22'. $stitle .'%22" title="Google" target="_blank">G</a>';
 	$nzbmsrch = '<a href="http://nzbmatrix.com/nzb-search.php?search='. $stitle .'&cat=0" title="NZBMatrix" target="_blank">nM</a>';
 	$stmsrch = '<a href="http://store.steampowered.com/search/?term='. $stitle.' title="Steam" target="_blank">St</a>';
-	$imdbsrch = '<a href="http://www.imdb.com/find?s=all&q='. $stitle.'&x=0&y=0" title="IMDb" target="_blank">I</a>';
+	$imdbsrch = '<a href="http://www.imdb.com/find?s=all&q='. $stitle.'&x=0&y=0" title="IMDb" target="_blank">i</a>';
 	$vcqsrch = '<a href="http://www.vcdq.com/index.php?genre=5&searchstring='. $stitle .'&x=0&y=0" title="VCD Quality" target="_blank">V</a>';
-		
+	$nzborg = '<a href="http://www.nzbs.org/index.php?action=search&q='. $stitle .'&catid=0&age=" title="NZBorg" target="_blank">nZ</a>';
+	$bookob = '<a href="http://www.booko.com.au/books/search?q='. $stitle .'&commit=Search&product_type=1" title="Booko Books" target="_blank">bB</a>';
+	$bookod = '<a href="http://www.booko.com.au/books/search?q='. $stitle .'&commit=Search&product_type=2" title="Booko Booko DVDs" target="_blank">bD</a>';
+
 	switch($stype)
 	{
 		case "Movie":
-			$itemsrch = $ensrch.' / '.$nzbmsrch.' / '.$vcqsrch.' / '.$googsrch.' / '.$imdbsrch.' / '.$ebaysrch;
+			$itemsrch = $ensrch.'|'.$nzborg.'|'.$vcqsrch.'|'.$googsrch.'|'.$imdbsrch.'|'.$ebaysrch;
 			break;
 		case "iPhone":
-			$itemsrch = $ensrch.' / '.$googsrch.' / '.$iphsrch;
+			$itemsrch = $ensrch.'|'.$googsrch.'|'.$iphsrch;
 			break;
 		case "Book":
-			$itemsrch = $ensrch.' / '.$nzbmsrch.' / '.$googsrch.' / '.$ebaysrch.' / '.$tnbsrch;
+			$itemsrch = $ensrch.'|'.$nzborg.'|'.$bookob.'|'.$googsrch.'|'.$ebaysrch.'|'.$tnbsrch;
 			break;
 		case "Steam":
-			$itemsrch = $stmsrch.' / '.$googsrch;
+			$itemsrch = $stmsrch.'|'.$googsrch;
 			break;
 		case "TV":
-			$itemsrch = $ensrch.' / '.$tvsrch.' / '.$nzbmsrch.' / '.$googsrch.' / '.$imdbsrch.' / '.$ebaysrch;
+			$itemsrch = $ensrch.'|'.$tvsrch.'|'.$nzborg.'|'.$googsrch.'|'.$imdbsrch.'|'.$ebaysrch;
 			break;
 		default:
-			$itemsrch = $ensrch.' / '.$googsrch.' / '.$ebaysrch;
+			$itemsrch = $ensrch.'|'.$googsrch.'|'.$ebaysrch;
 	}
 	return($itemsrch);
 }
