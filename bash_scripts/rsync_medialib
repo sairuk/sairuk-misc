@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Local Rsync Backups
+#
+
+function runrsync {
+MYSOURCE="${1}"
+MYDEST="${2}"
+rsync --verbose  --progress --stats --modify-window=1 \
+      --recursive --times --copy-dirlinks --delete \
+      --exclude "*bak" --exclude "*~" \
+      ${MYSOURCE} ${MYDEST}
+}
+
+# Check Args
+[ "$#" -lt 2 ] || die "2 directory arguments required, $# provided"
+
+# Check Source Directory
+[ -d "$1" ] || die "Source directory $1 does not exist"
+
+# Check Dest Directory
+[ -d "$2" ] || die "Destination directory $2 does not exist"
+
+runrsync
+exit 0
