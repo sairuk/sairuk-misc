@@ -50,32 +50,32 @@ include('includes/counter.php');
 									 <select name="queue" title="Select output format">
 										 <optgroup label="HTML Listings">
 										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">� Web Search (Multiple)</option>
-										 <option value="binsearch">� binsearch.info</option>
-										 <option value="easynews">� EasyNews Search</option>
-										 <option value="ebayau">� eBay Australia Search</option>
-										 <option value="ebay">� eBay Search</option>
-										 <option value="google">� Google Search</option>
+										 <option value="binsearch">&#149; binsearch.info</option>
+										 <option value="easynews">&#149; EasyNews Search</option>
+										 <option value="ebayau">&#149; eBay Australia Search</option>
+										 <option value="ebay">&#149; eBay Search</option>
+										 <option value="google">&#149; Google Search</option>
 										 </optgroup>
 										 <optgroup label="File Transfer Queues">
-										 <option value="filezilla">� FileZilla Filter</option>
-										 <option value="wget">� wget queue</option>
+										 <option value="filezilla">&#149; FileZilla Filter</option>
+										 <option value="wget">&#149; wget queue</option>
 										 </optgroup>
 										 <optgroup label="Copy Scripts">									 
-										 <option value="msbat">� MSDOS batch</option>
-										 <option value="bash">� Bash Script</option>
+										 <option value="msbat">&#149; MSDOS batch</option>
+										 <option value="bash">&#149; Bash Script</option>
 										 </optgroup>
 										 <optgroup label="Categories">									 
-										 <option value="catver">� CatVer Format</option>
+										 <option value="catver">&#149; CatVer Format</option>
 										 </optgroup>
 										 <optgroup label="Rename Scripts">	
-										 <option value="CRCmsbat" title="Rename files from CRC.EXT to a useful name">� MSDOS batch CRC</option>
-										 <option value="msbatnumbered" title="Rename files from NUMBER.EXT to a useful name">� MSDOS batch NUM</option>
+										 <option value="CRCmsbat" title="Rename files from CRC.EXT to a useful name">&#149; MSDOS batch CRC</option>
+										 <option value="msbatnumbered" title="Rename files from NUMBER.EXT to a useful name">&#149; MSDOS batch NUM</option>
 										 </optgroup>
 										 <optgroup label="Emulator Frontends">
-										 <option value="mamewah" title="Best support for Goodtxts">� Wah!Cade Filtered Lists</option>
-										 <option value="mamewah168" title="Best support for Goodtxts">� MameWah 1.68 Filtered Lists</option>
-										 <option value="mGalaxy" title="Version number must be manually added to final output">� mGalaxy Database</option>
-										 <option value="xbmclauncher">� XBMC Launcher Rom List</option>
+										 <option value="mamewah" title="Best support for Goodtxts">&#149; Wah!Cade Filtered Lists</option>
+										 <option value="mamewah168" title="Best support for Goodtxts">&#149; MameWah 1.68 Filtered Lists</option>
+										 <option value="mGalaxy" title="Version number must be manually added to final output">&#149; mGalaxy Database</option>
+										 <option value="xbmclauncher">&#149; XBMC Launcher Rom List</option>
 										 </optgroup>
 										 <!-- <optgroup label="Miscellaneous">									 
 										 <option value="fakefile">� Create Fake Files</option>

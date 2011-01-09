@@ -366,7 +366,7 @@ function create_link($zipfile) {
 		chmod($resultsfile, 0755);
 		echo (' 
 				<tr><td>
-					Results: <a href="'.$resultsfile.'</a> - '.$fsize.'<br /> 
+					Results: <a href="'.$resultsfile.'">'.$hreftitle.'</a> - '.$fsize.'<br /> 
 				</td></tr>
 			 ');
         }
