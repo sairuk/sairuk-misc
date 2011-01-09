@@ -49,7 +49,7 @@ include('includes/counter.php');
 							Output Format:</td><td>
 									 <select name="queue" title="Select output format">
 										 <optgroup label="HTML Listings">
-										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">� Web Search (Multiple)</option>
+										 <option value="htmlall" selected="selected" title="Multiple Search Options in output">&#149; Web Search (Multiple)</option>
 										 <option value="binsearch">&#149; binsearch.info</option>
 										 <option value="easynews">&#149; EasyNews Search</option>
 										 <option value="ebayau">&#149; eBay Australia Search</option>
