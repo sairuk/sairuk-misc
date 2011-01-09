@@ -239,9 +239,9 @@ function genFunction($inType,$skiplines,$fTypeTitle) {
         		# Rommanger Dat Format
           		case rommanager:
 					if ( $i > $skiplines ) {
-						if (preg_match("/^¬/",$line)) {
-						# ¬parent name¬parent description¬game name¬game description¬rom name¬rom crc¬rom size¬romof name¬merge name¬
-						$line = explode('¬',$line);
+						if (preg_match("/^ï¿½/",$line)) {
+						# ï¿½parent nameï¿½parent descriptionï¿½game nameï¿½game descriptionï¿½rom nameï¿½rom crcï¿½rom sizeï¿½romof nameï¿½merge nameï¿½
+						$line = explode('ï¿½',$line);
 						build_itemArray("0","1",$line[1],$line[0],$line[7],$ext,$line[4],"",$line[5],$line[7],$line[6],"","",$build);
 						}
 					}
@@ -362,9 +362,11 @@ function create_link($zipfile) {
 		}
 		cleanSessionID($zipfile);
 		$hreftitle = basename($csIDstr);
+		$resultsfile = UPLOADPATH .'/'. $sessionID .'/'.basename($zipfile);
+		chmod($resultsfile, 0755);
 		echo (' 
 				<tr><td>
-					Results: <a href="'.UPLOADPATH .'/'. $sessionID .'/'.basename($zipfile).'" target="_blank">'.$hreftitle.'</a> - '.$fsize.'<br /> 
+					Results: <a href="'.$resultsfile.'</a> - '.$fsize.'<br /> 
 				</td></tr>
 			 ');
         }
