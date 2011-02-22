@@ -21,8 +21,7 @@ VERSION=UNREAL_ANTHOLOGY
 GAME=4
 LANG=English
 DEST=/usr/local/games
-MEDIA=/usr/downloads/ut/ua
-#MEDIA=/media/${VERSION}
+MEDIA=/media/${VERSION}
 UTGRP="games"
 
 TEMPDIR="/tmp/${VERSION}"
