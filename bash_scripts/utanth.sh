@@ -189,7 +189,7 @@ if [ `which unshield` = "/usr/bin/unshield" ]; then
         echo "Creating Desktop Launcher"
         touch ${EXTRAS}/ut99.desktop
         echo "[Desktop Entry]" > ${EXTRAS}/ut99.desktop
-        echo "Name=Unreal Tournament 2004" >> ${EXTRAS}/ut99.desktop
+        echo "Name=Unreal Tournament" >> ${EXTRAS}/ut99.desktop
         echo "Comment=Unreal Tournament '99" >> ${EXTRAS}/ut99.desktop 
         echo "Exec=/usr/bin/ut99" >> ${EXTRAS}/ut99.desktop
         echo "Icon=/${DEST}/${GAMETYPE}/System/icon.xpm" >> ${EXTRAS}/ut99.desktop
