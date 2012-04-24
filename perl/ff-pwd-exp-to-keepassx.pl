@@ -5,23 +5,23 @@ my $creation_date = "2010-06-03T23:01:17";
 my $lastaccess_date = "2010-06-03T23:01:33";
 my $lastmod_date = "2010-06-03T23:01:33";
 
-print "\n";
-print "Firefox to KeepassX Converter v0.1beta - Wayne Moulden 2010\n";
-print " Converts CSV input from the Firefox Password Exporter\n";
-print " Extension to KeepassX XML format for import\n\n";
-print " User may pass an optional KeepassX data file which will\n";
-print " be included in the final output\n";
-print " NOTE: Output is sent to stdout redirect output to file if\n";
-print " saving for import\n\n";
-
 if ( @ARGV > 0 ) 
 {
 	$data_file = $ARGV[0];
 	$append_file = $ARGV[1];
 } else {
-        print " Usage: $0 \<exported-firefox-csv\> \<optional-keypass-xml\>\n";
-	print "\n";
-        exit(1);
+    
+    print "\n";
+    print "Firefox to KeepassX Converter v0.1beta - Wayne Moulden 2010\n";
+    print " Converts CSV input from the Firefox Password Exporter\n";
+    print " Extension to KeepassX XML format for import\n\n";
+    print " User may pass an optional KeepassX data file which will\n";
+    print " be included in the final output\n";
+    print " NOTE: Output is sent to stdout redirect output to file if\n";
+    print " saving for import\n\n";
+    print " Usage: $0 \<exported-firefox-csv\> \<optional-keypass-xml\>\n";
+    print "\n";
+    exit(1);
 }
 
 open(DAT, $data_file) || die("Could not open file! $data_file");
