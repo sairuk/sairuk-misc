@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 # Convert Firefox Password Exporter to KeepassX XML format
+# 2014-09-13, Updated to correct combined conversion errors with append file
+ 
 my $creation_date = "2010-06-03T23:01:17";
 my $lastaccess_date = "2010-06-03T23:01:33";
 my $lastmod_date = "2010-06-03T23:01:33";
@@ -56,34 +58,33 @@ foreach $line (@raw_data)
   }
 }
 close(DAT); 
+print "</group>\n";
 
-  if ( $append_file ) {
-	# Append Keepass exported file contents
-	open(DAT, $append_file) || die("Could not open file!");
-	@raw_data=<DAT>;
+if ( $append_file ) {
+	  # Append Keepass exported file contents
+	  open(DAT, $append_file) || die("Could not open file!");
+	  @raw_data=<DAT>;
 	
-	my $total = @{raw_data};
+	  my $total = @{raw_data};
 
-	$i,$x = 0;
-	foreach $line (@raw_data)
-	{
-	$i++;
-		if ( ( $i == "1" ) && ( ! $line =~ '/KEEPASS/' ) )
-		{
-			print "Not a Keepass Export File, will not include\n";
-			exit(1);
-		}
+	  $y,$x = 0;
+	  foreach $line (@raw_data)
+	  {
+	  $y++;
+		  if ( ( $y == "1" ) && ( ! $line =~ '/KEEPASS/' ) )
+		  {
+			  print "Not a Keepass Export File, will not include\n";
+			  exit(1);
+		  }
 
-		if ( $i > 3 ) {
-			if ( $x <= $total )  { 
- 				print $line;
-			}
-		$x++;
-		}
-	}
+		  if ( $y > 2 ) {
+			  if ( $x <= $total )  { 
+   				print $line;
+			  }
+		  $x++;
+		  }
+	  }
   } else {
-
-  print "</group>\n";
   print "</database>\n"
 
   }
