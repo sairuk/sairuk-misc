@@ -1,5 +1,5 @@
 # sairuk-misc
-A bunch of project brought across from google.code
+A bunch of projects brought across from google.code
 
 Current home of:
   * listGen. A list conversion tool.
